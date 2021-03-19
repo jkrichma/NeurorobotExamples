@@ -1,5 +1,7 @@
-# NeurorobotExamples
-These examples use the Webots robot simulator (https://cyberbotics.com/) to demonstrate neurobots.
+# Neurorobot Examples
+# Jeff Krichmar, March 19, 2021
+These examples illustrate concepts discussed in the book "Neurorobotics: Connecting the Brain, Body and Environment." Tiffany Hwu and Jeff Krichmar, Cambridge, MA, MIT Press. The examples use the Webots robot simulator (https://cyberbotics.com/). 
+
 1) Braitenberg vehicles 2 and 3.
 2) Bee navigation by balancing the flow across the left and right distance sensors.
 3) Conditioning using Rescorla Wagner learning to tie value to different colors.
