@@ -9,5 +9,5 @@ These examples illustrate concepts discussed in the book "Neurorobotics: Connect
 5) Event-driven action selection.
 6) Solving the Morris Water Maze using temporal difference learning.
 
-All controllers were written in Python excepct for the Morris water maze, which was written in C.
+All controllers were written in Python except for the Morris water maze, which was written in C.
  
