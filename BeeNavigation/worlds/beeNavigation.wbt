@@ -1,28 +1,169 @@
-#VRML_SIM R2021a utf8
+#VRML_SIM R2022a utf8
 WorldInfo {
   basicTimeStep 16
-  coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.9204384873520803 0.3781030722425955 0.09915169066498618 5.492701104937377
-  position -0.6351160471000816 1.524037048076586 2.2620923024863577
+  orientation -0.09915169066498622 -0.9204384873520802 0.3781030722425956 -0.790484202242209
+  position -2.2620923024863577 0.6351160471000816 1.524037048076586
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Floor {
+  rotation 0 0 1 1.5707963267948966
   size 1 3
 }
+DEF WALL_1 Solid {
+  translation -1.2338 -0.116851 0.02
+  scale 0.5 0.5 0.5
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0.000106813 0.00175479 0.998215
+        roughness 0.5
+        metalness 0
+      }
+      geometry Box {
+        size 0.98 0.02 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_2 Solid {
+  translation -1.24642 0.225855 0.02
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(2)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_3 Solid {
+  translation 1.38614 0.0232998 0.05
+  rotation 0 0 1 1.5708
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(3)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_4 Solid {
+  translation -1.48433 -0.00611747 0.02
+  rotation 0 0 1 1.5708
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(4)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_5 Solid {
+  translation -0.774687 0.194337 0.02
+  rotation 0 0 1 -0.132741
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(5)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_6 Solid {
+  translation -0.275607 -0.138105 0.02
+  rotation 0 0 1 -0.33
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(6)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_7 Solid {
+  translation -0.751986 -0.0864879 0.02
+  rotation 0 0 1 0.13274122871834493
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(7)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_8 Solid {
+  translation -0.301085 0.0836238 0.02
+  rotation 0 0 1 -0.33
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(8)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_9 Solid {
+  translation 0.150725 0.0849134 0.02
+  rotation 0 0 1 0.33
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(9)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_10 Solid {
+  translation 0.184429 -0.134287 0.02
+  rotation 0 0 1 0.33
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(10)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_11 Solid {
+  translation 0.653765 -0.108145 0.02
+  rotation 0 0 1 -0.2
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(11)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_12 Solid {
+  translation 0.629633 0.154199 0.02
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(12)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_13 Solid {
+  translation 1.12618 0.155795 0.02
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(13)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_14 Solid {
+  translation 1.15931 -0.156242 0.02
+  scale 0.5 0.5 0.5
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(14)"
+  boundingObject USE WALL_SHAPE
+}
 Robot {
-  translation 0.00562731 -3.21058e-05 1.361
-  rotation 0.011385167208559924 0.9999346535619149 0.0010327505248318124 -0.1908804984007192
+  translation -1.39117 0.0319669 1.55431e-15
   children [
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 10.921678413737368
-        axis -1 0 0
-        anchor 0 0.02 0
+        axis 0 1 0
+        anchor 0 0 0.02
       }
       device [
         RotationalMotor {
@@ -36,11 +177,11 @@ Robot {
         }
       ]
       endPoint DEF EPUCK_LEFT_WHEEL Solid {
-        translation -0.02599999999999997 0.02 0
-        rotation 1 0 0 1.644692200621805
+        translation 0 0.026 0.02
+        rotation 0 1 0 0
         children [
           DEF EPUCK_WHEEL Transform {
-            rotation 0 0 1 1.57
+            rotation 1 0 0 -1.570796
             children [
               Shape {
                 appearance DEF EPUCK_TRANSPARENT_APPEARANCE PBRAppearance {
@@ -56,13 +197,14 @@ Robot {
                 }
               }
               Transform {
-                translation 0 0.0016 0
+                translation 0 0 0.0016
+                rotation 1 0 0 1.570796
                 children [
                   Shape {
                     appearance PBRAppearance {
                       baseColorMap ImageTexture {
                         url [
-                          "textures/gctronic_logo.png"
+                          "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/gctronic_logo.png"
                         ]
                       }
                       roughness 0.4
@@ -110,7 +252,7 @@ Robot {
                 }
               }
               Transform {
-                translation 0 0.0035 0
+                translation 0 0 0.0035
                 children [
                   Shape {
                     appearance USE EPUCK_TRANSPARENT_APPEARANCE
@@ -135,7 +277,7 @@ Robot {
                 ]
               }
               Transform {
-                translation 0 0.0065 0
+                translation 0 0 0.0065
                 children [
                   Shape {
                     appearance PBRAppearance {
@@ -155,7 +297,7 @@ Robot {
         ]
         name "left wheel"
         boundingObject DEF EPUCK_WHEEL_BOUNDING_OBJECT Transform {
-          rotation 0 0 1 1.57
+          rotation 1 0 0 1.570796
           children [
             Cylinder {
               height 0.005
@@ -172,9 +314,8 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 10.379943444243207
-        axis -1 0 0
-        anchor 0 0.02 0
+        axis 0 1 0
+        anchor 0 0 0.02
       }
       device [
         RotationalMotor {
@@ -188,11 +329,11 @@ Robot {
         }
       ]
       endPoint DEF EPUCK_RIGHT_WHEEL Solid {
-        translation 0.026000000000000027 0.02 0
-        rotation 1 0 0 2.1864271701159663
+        translation 0 -0.026 0.02
+        rotation 0 1 0 0
         children [
           Transform {
-            rotation 0 1 0 3.14159
+            rotation 1 0 0 3.14159
             children [
               USE EPUCK_WHEEL
             ]
@@ -204,23 +345,23 @@ Robot {
       }
     }
     DEF BATTERY_CONNECTOR Transform {
-      rotation 0 1 0 3.14159
+      rotation 0.5773542691753248 0.5773442691706626 0.5773522691743924 2.094396
       children [
         Shape {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/copper/copper_base_color.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/appearances/protos/textures/copper/copper_base_color.jpg"
               ]
             }
             roughnessMap ImageTexture {
               url [
-                "textures/copper/copper_roughness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/appearances/protos/textures/copper/copper_roughness.jpg"
               ]
             }
             metalnessMap ImageTexture {
               url [
-                "textures/copper/copper_metalness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/appearances/protos/textures/copper/copper_metalness.jpg"
               ]
             }
           }
@@ -277,17 +418,17 @@ Robot {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/copper/copper_base_color.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/appearances/protos/textures/copper/copper_base_color.jpg"
               ]
             }
             roughnessMap ImageTexture {
               url [
-                "textures/copper/copper_roughness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/appearances/protos/textures/copper/copper_roughness.jpg"
               ]
             }
             metalnessMap ImageTexture {
               url [
-                "textures/copper/copper_metalness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/appearances/protos/textures/copper/copper_metalness.jpg"
               ]
             }
           }
@@ -344,8 +485,8 @@ Robot {
       ]
     }
     DEF MOTORS Transform {
-      translation 0 0.02 0
-      rotation 0 0 1 1.5707996938995747
+      translation 0 0 0.02
+      rotation 1 0 0 -1.570796
       children [
         Shape {
           appearance PBRAppearance {
@@ -369,8 +510,8 @@ Robot {
       ]
     }
     DEF EPUCK_PLATE Transform {
-      translation 0.0002 0.037 0
-      rotation 0 1 0 3.14159
+      translation 0 -0.0002 0.037
+      rotation 0.5773542691753248 0.5773442691706626 0.5773522691743924 2.094396
       scale 0.01 0.01 0.01
       children [
         Shape {
@@ -395,27 +536,27 @@ Robot {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/e-puck1_plate_base_color.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_plate_base_color.jpg"
               ]
             }
             roughnessMap ImageTexture {
               url [
-                "textures/e-puck1_plate_roughness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_plate_roughness.jpg"
               ]
             }
             metalnessMap ImageTexture {
               url [
-                "textures/e-puck1_plate_metalness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_plate_metalness.jpg"
               ]
             }
             normalMap ImageTexture {
               url [
-                "textures/e-puck1_plate_normal.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_plate_normal.jpg"
               ]
             }
             occlusionMap ImageTexture {
               url [
-                "textures/e-puck1_plate_occlusion.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_plate_occlusion.jpg"
               ]
             }
           }
@@ -462,8 +603,8 @@ Robot {
       ]
     }
     DEF EPUCK_BATTERY Transform {
-      translation 0 0.007 0.026
-      rotation 1 0 0 -1.5708053071795867
+      translation -0.026 0 0.007
+      rotation 0 0 1 -1.5708
       children [
         Shape {
           appearance PBRAppearance {
@@ -517,41 +658,41 @@ Robot {
       ]
     }
     DEF EPUCK_TURRET Transform {
-      translation 0 0.0466 0.004
+      translation -0.004 0 0.0466
       scale 0.0128 0.0128 0.0128
       children [
         Shape {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/e-puck1_turret_base_color.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_turret_base_color.jpg"
               ]
             }
             roughnessMap ImageTexture {
               url [
-                "textures/e-puck1_turret_roughness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_turret_roughness.jpg"
               ]
             }
             metalnessMap ImageTexture {
               url [
-                "textures/e-puck1_turret_metalness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_turret_metalness.jpg"
               ]
             }
             normalMap ImageTexture {
               url [
-                "textures/e-puck1_turret_normal.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_turret_normal.jpg"
               ]
             }
             occlusionMap ImageTexture {
               url [
-                "textures/e-puck1_turret_occlusion.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/e-puck1_turret_occlusion.jpg"
               ]
             }
           }
           geometry IndexedFaceSet {
             coord Coordinate {
               point [
-                0.419895 0.151244 2.421, 0.948889 0.151244 2.25683, 1.43532 0.151244 1.97105, 1.22859 0.151244 -0.710407, 1.1009 0.151244 -1.01443, 0.954969 0.151244 -1.18467, 0.577985 0.151244 -1.48261, 0.213162 0.151244 -1.6407, 1.30155 0.151244 -2.37643, 1.3806 0.151244 -2.46764, 1.49613 0.151244 -2.51628, 1.61774 0.151244 -2.49804, 1.6907 0.151244 -2.41899, 1.72718 0.151244 -2.30955, 1.6299 0.151244 -2.07849, 1.49005 0.151244 -2.04809, 1.28331 0.151244 -2.26698, -0.419901 0.151244 2.421, -1.1009 0.151244 -1.01443, -0.419901 0.151244 -1.5799, -0.213167 0.151244 -1.64069, -1.30155 0.151244 -2.37643, -1.3806 0.151244 -2.46764, -1.61774 0.151244 -2.49804, -1.6907 0.151244 -2.41899, -1.72718 0.151244 -2.30955, -1.6299 0.151244 -2.07849, -0.577991 0.151244 -1.48261, -0.954975 0.151244 -1.18467, -1.28331 0.151244 -2.26698, -1.49005 0.151244 -2.04809, -1.71502 0.151244 -2.18186, -1.49613 0.151244 -2.51628, -3e-06 0.151244 2.46356, -3e-06 0.151244 -1.65286, 1.71502 0.151244 -2.18186, -1.43531 0.151244 1.97105, -0.94889 0.151244 2.25683, -1.22858 0.151244 -0.710411, 0.419894 0.151244 -1.5799
+                -2.421002 -0.4198879 0.1512309, -2.2568339 -0.9488825 0.1512259, -1.9710557 -1.4353145 0.1512219, 0.7104021 -1.2285941 0.1512336, 1.0144255 -1.1009052 0.1512361, 1.184666 -0.9549748 0.1512382, 1.4826074 -0.5779919 0.1512432, 1.6406987 -0.2131695 0.1512476, 2.3764248 -1.3015601 0.1512388, 2.4676345 -1.3806104 0.1512383, 2.5162741 -1.4961406 0.1512373, 2.4980337 -1.6177505 0.1512359, 2.4189834 -1.6907103 0.1512349, 2.3095433 -1.7271899 0.1512341, 2.0784836 -1.629909 0.1512343, 2.0480841 -1.4900589 0.1512357, 2.2669749 -1.2833197 0.1512386, -2.420999 0.4199081 0.1512397, 1.0144334 1.1008948 0.1512592, 1.579901 0.4198938 0.1512541, 1.6406902 0.2131595 0.1512521, 2.3764341 1.3015399 0.1512662, 2.4676444 1.3805896 0.1512674, 2.4980453 1.6177295 0.15127, 2.4189955 1.6906897 0.1512704, 2.3095556 1.7271701 0.1512704, 2.0784953 1.629891 0.1512686, 1.4826115 0.5779841 0.1512554, 1.1846729 0.9549692 0.1512583, 2.2669841 1.2833003 0.1512656, 2.0480948 1.4900411 0.151267, 2.1818656 1.7150106 0.1512698, 2.5162848 1.4961194 0.1512687, -2.4635605 1.02e-05 0.1512352, 1.6528595 -4.5e-06 0.1512499, 2.1818533 -1.7150294 0.1512338, -1.9710454 1.4353155 0.151252, -2.2568271 0.9488965 0.1512459, 0.7104149 1.2285759 0.1512595, 1.579898 -0.4199012 0.1512452
               ]
             }
             texCoord TextureCoordinate {
@@ -573,7 +714,7 @@ Robot {
           geometry IndexedFaceSet {
             coord Coordinate {
               point [
-                0.419895 0.151244 2.421, 0.948889 0.151244 2.25683, 1.43532 0.151244 1.97105, 1.22859 0.151244 -0.710407, 1.1009 0.151244 -1.01443, 0.954969 0.151244 -1.18467, 0.603673 0.151244 -1.46549, 0.419895 0.151244 -1.56421, 0.213162 0.151244 -1.62501, 1.30155 0.151244 -2.37643, 1.3806 0.151244 -2.46764, 1.49613 0.151244 -2.51628, 1.61774 0.151244 -2.49804, 1.6907 0.151244 -2.41899, 1.72718 0.151244 -2.30955, 1.6299 0.151244 -2.07849, 1.49005 0.151244 -2.04809, 1.2914 0.151244 -2.2132, -0.419901 0.151244 2.421, -1.1009 0.151244 -1.01443, -0.419901 0.151244 -1.56421, -0.213167 0.151244 -1.625, -1.30155 0.151244 -2.37643, -1.3806 0.151244 -2.46764, -1.61774 0.151244 -2.49804, -1.6907 0.151244 -2.41899, -1.72718 0.151244 -2.30955, -1.6299 0.151244 -2.07849, -0.624158 0.151244 -1.44904, -0.954975 0.151244 -1.18467, -0.419901 0.0012444 2.421, -1.1009 0.0012443 -1.01443, -0.954975 0.0012443 -1.18467, -0.624158 0.0012443 -1.44904, -0.419901 0.0012443 -1.56421, -1.6299 0.0012442 -2.07849, -1.72718 0.0012442 -2.30955, -1.6907 0.0012442 -2.41899, -1.61774 0.0012442 -2.49804, 1.2914 0.0012442 -2.2132, 1.30155 0.0012442 -2.37643, 1.3806 0.0012442 -2.46764, 1.49613 0.0012442 -2.51628, 1.61774 0.0012442 -2.49804, 1.6907 0.0012442 -2.41899, 1.72718 0.0012442 -2.30955, 1.6299 0.0012442 -2.07849, 1.49005 0.0012442 -2.04809, 0.603723 0.0012943 -1.46554, 0.954969 0.0012443 -1.18467, 1.1009 0.0012443 -1.01443, 1.22859 0.0012443 -0.710407, 1.43532 0.0012444 1.97105, 0.948889 0.0012444 2.25683, 0.419895 0.0012444 2.421, -1.28751 0.0012442 -2.21662, -1.49005 0.0012442 -2.04809, -1.30155 0.0012442 -2.37643, -1.71502 0.0012442 -2.18186, -1.49613 0.0012442 -2.51628, -1.3806 0.0012442 -2.46764, 3.054e-05 0.0012778 2.46353, 3.05623e-05 0.0012776 -1.6372, 1.71502 0.0012442 -2.18186, -1.28751 0.151244 -2.21662, -1.49005 0.151244 -2.04809, -1.71502 0.151244 -2.18186, -1.49613 0.151244 -2.51628, -2.83867e-06 0.151244 2.46356, -2.84612e-06 0.151244 -1.63717, 1.71502 0.151244 -2.18186, -1.43531 0.151244 1.97105, -0.94889 0.0012444 2.25683, -0.94889 0.151244 2.25683, -1.22858 0.151244 -0.710411, -1.22858 0.0012443 -0.710411, -1.43526 0.0012794 1.97099, -0.213167 0.0012443 -1.625, 0.213158 0.0012443 -1.625, 0.419945 0.0012943 -1.56426, 0.419894 0.151244 -1.56421, 0.213154 0.151244 -1.625
+                -2.421002 -0.4198879 0.1512309, -2.2568339 -0.9488825 0.1512259, -1.9710557 -1.4353145 0.1512219, 0.7104021 -1.2285941 0.1512336, 1.0144255 -1.1009052 0.1512361, 1.184666 -0.9549748 0.1512382, 1.4654873 -0.6036798 0.1512429, 1.564208 -0.4199022 0.1512452, 1.6250087 -0.2131694 0.1512476, 2.3764248 -1.3015601 0.1512388, 2.4676345 -1.3806104 0.1512383, 2.5162741 -1.4961406 0.1512373, 2.4980337 -1.6177505 0.1512359, 2.4189834 -1.6907103 0.1512349, 2.3095433 -1.7271899 0.1512341, 2.0784836 -1.629909 0.1512343, 2.0480841 -1.4900589 0.1512357, 2.2131948 -1.2914095 0.1512384, -2.420999 0.4199081 0.1512397, 1.0144334 1.1008948 0.1512592, 1.564211 0.4198938 0.151254, 1.6250002 0.2131596 0.1512521, 2.3764341 1.3015399 0.1512662, 2.4676444 1.3805896 0.1512674, 2.4980453 1.6177295 0.15127, 2.4189955 1.6906897 0.1512704, 2.3095556 1.7271701 0.1512704, 2.0784953 1.629891 0.1512686, 1.4490417 0.6241512 0.1512558, 1.1846729 0.9549692 0.1512583, -2.4209985 0.4199097 0.0012401, 1.0144339 1.1008964 0.0012595, 1.1846734 0.9549707 0.0012586, 1.4490422 0.6241528 0.0012561, 1.5642115 0.4198954 0.0012543, 2.0784958 1.6298925 0.0012688, 2.3095562 1.7271717 0.0012706, 2.4189961 1.6906913 0.0012706, 2.4980458 1.617731 0.0012702, 2.2131954 -1.2914079 0.0012386, 2.3764253 -1.3015585 0.001239, 2.467635 -1.3806089 0.0012385, 2.5162746 -1.496139 0.0012375, 2.4980342 -1.617749 0.0012361, 2.4189839 -1.6907087 0.0012351, 2.3095438 -1.7271883 0.0012343, 2.0784842 -1.6299075 0.0012345, 2.0480847 -1.4900573 0.0012359, 1.4655378 -0.6037283 0.0012932, 1.1846666 -0.9549733 0.0012385, 1.0144261 -1.1009036 0.0012364, 0.7104026 -1.2285926 0.0012339, -1.9710551 -1.435313 0.0012223, -2.2568334 -0.9488809 0.0012263, -2.4210015 -0.4198863 0.0012313, 2.2166246 1.287502 0.0012657, 2.0480953 1.4900426 0.0012672, 2.3764347 1.3015415 0.0012664, 2.1818661 1.7150122 0.00127, 2.5162854 1.496121 0.0012689, 2.4676449 1.3805911 0.0012676, -2.46353 -2.17e-05 0.001269, 1.6372 -3.64e-05 0.0012835, 2.1818539 -1.7150278 0.001234, 2.2166241 1.2875005 0.1512655, 2.0480948 1.4900411 0.151267, 2.1818656 1.7150106 0.1512698, 2.5162848 1.4961194 0.1512687, -2.4635605 1.01e-05 0.1512352, 1.6371695 -4.6e-06 0.1512499, 2.1818533 -1.7150294 0.1512338, -1.9710454 1.4353155 0.151252, -2.2568266 0.9488981 0.0012463, -2.2568271 0.9488965 0.1512459, 0.7104149 1.2285759 0.1512595, 0.7104154 1.2285774 0.0012598, -1.9709849 1.435267 0.0012874, 1.6250008 0.2131612 0.0012524, 1.6249992 -0.2131638 0.0012479, 1.5642585 -0.4199506 0.0012955, 1.564208 -0.4199012 0.1512452, 1.6249987 -0.2131614 0.1512476
               ]
             }
             coordIndex [
@@ -585,7 +726,7 @@ Robot {
       ]
     }
     DEF EPUCK_RIGHT_COLUMN Transform {
-      translation 0.0193 0.0426 -0.0254
+      translation 0.0254 -0.0193 0.0426
       children [
         DEF EPUCK_COLUMN Shape {
           appearance PBRAppearance {
@@ -599,19 +740,19 @@ Robot {
       ]
     }
     DEF EPUCK_LEFT_COLUMN Transform {
-      translation -0.0193 0.0426 -0.0254
+      translation 0.0254 0.0193 0.0426
       children [
         USE EPUCK_COLUMN
       ]
     }
     DEF EPUCK_REAR_COLUMN Transform {
-      translation 0 0.0426 0.032
+      translation -0.032 0 0.0426
       children [
         USE EPUCK_COLUMN
       ]
     }
     DEF EPUCK_RIGHT_CONNECTOR Transform {
-      translation 0.0033 0.0426 0.0033
+      translation -0.0033 -0.0033 0.0426
       children [
         DEF EPUCK_CONNECTOR Shape {
           appearance PBRAppearance {
@@ -620,13 +761,13 @@ Robot {
             metalness 0
           }
           geometry Box {
-            size 0.005 0.008 0.02
+            size 0.02 0.005 0.008
           }
         }
       ]
     }
     DEF EPUCK_LEFT_CONNECTOR Transform {
-      translation -0.012 0.0426 0.0024
+      translation -0.0024 0.012 0.0426
       children [
         DEF EPUCK_CONNECTOR Shape {
           appearance PBRAppearance {
@@ -635,17 +776,17 @@ Robot {
             metalness 0
           }
           geometry Box {
-            size 0.005 0.008 0.02
+            size 0.02 0.005 0.008
           }
         }
       ]
     }
     DEF EPUCK_PS0 Solid {
-      translation 0.01 0.033 -0.03
-      rotation 0 1 0 1.27
+      translation 0.03 -0.01 0.033
+      rotation -0.9777965085141309 0.1481799255178978 0.1481779255189031 -1.593259
       children [
         DistanceSensor {
-          rotation 0 0 1 0.16
+          rotation 0.9936339104711146 0.07966069282237355 -0.07966069282237355 -1.5771853071795858
           children [
             Shape {
               appearance PBRAppearance {
@@ -654,7 +795,7 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.002 0.004 0.007
+                size 0.002 0.007 0.004
               }
             }
             Shape {
@@ -666,14 +807,14 @@ Robot {
               geometry IndexedLineSet {
                 coord Coordinate {
                   point [
-                    0 0 -0.003
-                    0 0.004 -0.003
-                    0 0 -0.001
-                    0 0.004 -0.001
-                    0 0 0.001
-                    0 0.004 0.001
-                    0 0 0.003
-                    0 0.004 0.003
+                    0 0.003 0
+                    0 0.003 0.004
+                    0 0.001 0
+                    0 0.001 0.004
+                    0 -0.001 0
+                    0 -0.001 0.004
+                    0 -0.003 0
+                    0 -0.003 0.004
                   ]
                 }
                 coordIndex [
@@ -704,11 +845,11 @@ Robot {
       model "e-puck distance sensor"
     }
     DEF EPUCK_PS1 Solid {
-      translation 0.025 0.033 -0.022
-      rotation 0 1 0 0.77
+      translation 0.022 -0.025 0.033
+      rotation 0.8580286389133098 -0.36317084716575504 -0.3631718471653342 1.723331
       children [
         DistanceSensor {
-          rotation 0 0 1 0.16
+          rotation 0.9936339104711146 0.07966069282237355 -0.07966069282237355 -1.5771853071795858
           children [
             Shape {
               appearance PBRAppearance {
@@ -717,7 +858,7 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.002 0.004 0.007
+                size 0.002 0.007 0.004
               }
             }
             Shape {
@@ -729,14 +870,14 @@ Robot {
               geometry IndexedLineSet {
                 coord Coordinate {
                   point [
-                    0 0 -0.003
-                    0 0.004 -0.003
-                    0 0 -0.001
-                    0 0.004 -0.001
-                    0 0 0.001
-                    0 0.004 0.001
-                    0 0 0.003
-                    0 0.004 0.003
+                    0 0.003 0
+                    0 0.003 0.004
+                    0 0.001 0
+                    0 0.001 0.004
+                    0 -0.001 0
+                    0 -0.001 0.004
+                    0 -0.003 0
+                    0 -0.003 0.004
                   ]
                 }
                 coordIndex [
@@ -767,10 +908,11 @@ Robot {
       model "e-puck distance sensor"
     }
     DEF EPUCK_PS2 Solid {
-      translation 0.031 0.033 0
+      translation 0 -0.031 0.033
+      rotation -0.5773516025189619 0.5773476025217157 0.5773516025189619 -2.094405
       children [
         DistanceSensor {
-          rotation 0 0 1 0.16
+          rotation 0.9936339104711146 0.07966069282237355 -0.07966069282237355 -1.5771853071795858
           children [
             Shape {
               appearance PBRAppearance {
@@ -779,7 +921,7 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.002 0.004 0.007
+                size 0.002 0.007 0.004
               }
             }
             Shape {
@@ -791,14 +933,14 @@ Robot {
               geometry IndexedLineSet {
                 coord Coordinate {
                   point [
-                    0 0 -0.003
-                    0 0.004 -0.003
-                    0 0 -0.001
-                    0 0.004 -0.001
-                    0 0 0.001
-                    0 0.004 0.001
-                    0 0 0.003
-                    0 0.004 0.003
+                    0 0.003 0
+                    0 0.003 0.004
+                    0 0.001 0
+                    0 0.001 0.004
+                    0 -0.001 0
+                    0 -0.001 0.004
+                    0 -0.003 0
+                    0 -0.003 0.004
                   ]
                 }
                 coordIndex [
@@ -829,11 +971,11 @@ Robot {
       model "e-puck distance sensor"
     }
     DEF EPUCK_PS3 Solid {
-      translation 0.015 0.033 0.03
-      rotation 0 1 0 5.21
+      translation -0.03 -0.015 0.033
+      rotation 0.17682400906037407 -0.6959610356606964 -0.6959680356610551 2.79157
       children [
         DistanceSensor {
-          rotation 0 0 1 0.16
+          rotation 0.9936339104711146 0.07966069282237355 -0.07966069282237355 -1.5771853071795858
           children [
             Shape {
               appearance PBRAppearance {
@@ -842,7 +984,7 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.002 0.004 0.007
+                size 0.002 0.007 0.004
               }
             }
             Shape {
@@ -854,14 +996,14 @@ Robot {
               geometry IndexedLineSet {
                 coord Coordinate {
                   point [
-                    0 0 -0.003
-                    0 0.004 -0.003
-                    0 0 -0.001
-                    0 0.004 -0.001
-                    0 0 0.001
-                    0 0.004 0.001
-                    0 0 0.003
-                    0 0.004 0.003
+                    0 0.003 0
+                    0 0.003 0.004
+                    0 0.001 0
+                    0 0.001 0.004
+                    0 -0.001 0
+                    0 -0.001 0.004
+                    0 -0.003 0
+                    0 -0.003 0.004
                   ]
                 }
                 coordIndex [
@@ -892,11 +1034,11 @@ Robot {
       model "e-puck distance sensor"
     }
     DEF EPUCK_PS4 Solid {
-      translation -0.015 0.033 0.03
-      rotation 0 1 0 4.21
+      translation -0.03 0.015 0.033
+      rotation 0.17853998811236166 0.695741953675763 0.6957489536752969 2.788236
       children [
         DistanceSensor {
-          rotation 0 0 1 0.16
+          rotation 0.9936339104711146 0.07966069282237355 -0.07966069282237355 -1.5771853071795858
           children [
             Shape {
               appearance PBRAppearance {
@@ -905,7 +1047,7 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.002 0.004 0.007
+                size 0.002 0.007 0.004
               }
             }
             Shape {
@@ -917,14 +1059,14 @@ Robot {
               geometry IndexedLineSet {
                 coord Coordinate {
                   point [
-                    0 0 -0.003
-                    0 0.004 -0.003
-                    0 0 -0.001
-                    0 0.004 -0.001
-                    0 0 0.001
-                    0 0.004 0.001
-                    0 0 0.003
-                    0 0.004 0.003
+                    0 0.003 0
+                    0 0.003 0.004
+                    0 0.001 0
+                    0 0.001 0.004
+                    0 -0.001 0
+                    0 -0.001 0.004
+                    0 -0.003 0
+                    0 -0.003 0.004
                   ]
                 }
                 coordIndex [
@@ -955,11 +1097,11 @@ Robot {
       model "e-puck distance sensor"
     }
     DEF EPUCK_PS5 Solid {
-      translation -0.031 0.033 0
-      rotation 0 1 0 3.14159
+      translation 0 0.031 0.033
+      rotation 0.5773542691753248 0.5773442691706626 0.5773522691743924 2.094396
       children [
         DistanceSensor {
-          rotation 0 0 1 0.16
+          rotation 0.9936339104711146 0.07966069282237355 -0.07966069282237355 -1.5771853071795858
           children [
             Shape {
               appearance PBRAppearance {
@@ -968,7 +1110,7 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.002 0.004 0.007
+                size 0.002 0.007 0.004
               }
             }
             Shape {
@@ -980,14 +1122,14 @@ Robot {
               geometry IndexedLineSet {
                 coord Coordinate {
                   point [
-                    0 0 -0.003
-                    0 0.004 -0.003
-                    0 0 -0.001
-                    0 0.004 -0.001
-                    0 0 0.001
-                    0 0.004 0.001
-                    0 0 0.003
-                    0 0.004 0.003
+                    0 0.003 0
+                    0 0.003 0.004
+                    0 0.001 0
+                    0 0.001 0.004
+                    0 -0.001 0
+                    0 -0.001 0.004
+                    0 -0.003 0
+                    0 -0.003 0.004
                   ]
                 }
                 coordIndex [
@@ -1018,11 +1160,11 @@ Robot {
       model "e-puck distance sensor"
     }
     DEF EPUCK_PS6 Solid {
-      translation -0.025 0.033 -0.022
-      rotation 0 1 0 2.37
+      translation 0.022 0.025 0.033
+      rotation 0.8585326142982999 0.3625718371121007 0.3625788371089559 1.722748
       children [
         DistanceSensor {
-          rotation 0 0 1 0.16
+          rotation 0.9936339104711146 0.07966069282237355 -0.07966069282237355 -1.5771853071795858
           children [
             Shape {
               appearance PBRAppearance {
@@ -1031,7 +1173,7 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.002 0.004 0.007
+                size 0.002 0.007 0.004
               }
             }
             Shape {
@@ -1043,14 +1185,14 @@ Robot {
               geometry IndexedLineSet {
                 coord Coordinate {
                   point [
-                    0 0 -0.003
-                    0 0.004 -0.003
-                    0 0 -0.001
-                    0 0.004 -0.001
-                    0 0 0.001
-                    0 0.004 0.001
-                    0 0 0.003
-                    0 0.004 0.003
+                    0 0.003 0
+                    0 0.003 0.004
+                    0 0.001 0
+                    0 0.001 0.004
+                    0 -0.001 0
+                    0 -0.001 0.004
+                    0 -0.003 0
+                    0 -0.003 0.004
                   ]
                 }
                 coordIndex [
@@ -1081,11 +1223,11 @@ Robot {
       model "e-puck distance sensor"
     }
     DEF EPUCK_PS7 Solid {
-      translation -0.01 0.033 -0.03
-      rotation 0 1 0 1.87
+      translation 0.03 0.01 0.033
+      rotation -0.9780278783524109 -0.1474109816649495 -0.1474159816643276 -1.593022
       children [
         DistanceSensor {
-          rotation 0 0 1 0.16
+          rotation 0.9936339104711146 0.07966069282237355 -0.07966069282237355 -1.5771853071795858
           children [
             Shape {
               appearance PBRAppearance {
@@ -1094,7 +1236,7 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.002 0.004 0.007
+                size 0.002 0.007 0.004
               }
             }
             Shape {
@@ -1106,14 +1248,14 @@ Robot {
               geometry IndexedLineSet {
                 coord Coordinate {
                   point [
-                    0 0 -0.003
-                    0 0.004 -0.003
-                    0 0 -0.001
-                    0 0.004 -0.001
-                    0 0 0.001
-                    0 0.004 0.001
-                    0 0 0.003
-                    0 0.004 0.003
+                    0 0.003 0
+                    0 0.003 0.004
+                    0 0.001 0
+                    0 0.001 0.004
+                    0 -0.001 0
+                    0 -0.001 0.004
+                    0 -0.003 0
+                    0 -0.003 0.004
                   ]
                 }
                 coordIndex [
@@ -1144,8 +1286,8 @@ Robot {
       model "e-puck distance sensor"
     }
     DEF EPUCK_LS0 LightSensor {
-      translation 0.01 0.0329 -0.03
-      rotation 0 1 0 1.27
+      translation 0.03 -0.01 0.0329
+      rotation -0.9777965085141309 0.1481799255178978 0.1481779255189031 -1.593259
       name "ls0"
       lookupTable [
         1 4095 0.01
@@ -1153,8 +1295,8 @@ Robot {
       ]
     }
     DEF EPUCK_LS1 LightSensor {
-      translation 0.025 0.0329 -0.022
-      rotation 0 1 0 0.77
+      translation 0.022 -0.025 0.0329
+      rotation 0.8580286389133098 -0.36317084716575504 -0.3631718471653342 1.723331
       name "ls1"
       lookupTable [
         1 4095 0.01
@@ -1162,7 +1304,8 @@ Robot {
       ]
     }
     DEF EPUCK_LS2 LightSensor {
-      translation 0.031 0.0329 0
+      translation 0 -0.031 0.0329
+      rotation -0.5773516025189619 0.5773476025217157 0.5773516025189619 -2.094405
       name "ls2"
       lookupTable [
         1 4095 0.01
@@ -1170,8 +1313,8 @@ Robot {
       ]
     }
     DEF EPUCK_LS3 LightSensor {
-      translation 0.015 0.0329 0.03
-      rotation 0 1 0 5.21
+      translation -0.03 -0.015 0.0329
+      rotation 0.17682400906037407 -0.6959610356606964 -0.6959680356610551 2.79157
       name "ls3"
       lookupTable [
         1 4095 0.01
@@ -1179,8 +1322,8 @@ Robot {
       ]
     }
     DEF EPUCK_LS4 LightSensor {
-      translation -0.015 0.0329 0.03
-      rotation 0 1 0 4.21
+      translation -0.03 0.015 0.0329
+      rotation 0.17853998811236166 0.695741953675763 0.6957489536752969 2.788236
       name "ls4"
       lookupTable [
         1 4095 0.01
@@ -1188,8 +1331,8 @@ Robot {
       ]
     }
     DEF EPUCK_LS5 LightSensor {
-      translation -0.031 0.0329 0
-      rotation 0 1 0 3.14159
+      translation 0 0.031 0.0329
+      rotation 0.5773542691753248 0.5773442691706626 0.5773522691743924 2.094396
       name "ls5"
       lookupTable [
         1 4095 0.01
@@ -1197,8 +1340,8 @@ Robot {
       ]
     }
     DEF EPUCK_LS6 LightSensor {
-      translation -0.025 0.0329 -0.022
-      rotation 0 1 0 2.37
+      translation 0.022 0.025 0.0329
+      rotation 0.8585326142982999 0.3625718371121007 0.3625788371089559 1.722748
       name "ls6"
       lookupTable [
         1 4095 0.01
@@ -1206,8 +1349,8 @@ Robot {
       ]
     }
     DEF EPUCK_LS7 LightSensor {
-      translation -0.01 0.0329 -0.03
-      rotation 0 1 0 1.87
+      translation 0.03 0.01 0.0329
+      rotation -0.9780278783524109 -0.1474109816649495 -0.1474159816643276 -1.593022
       name "ls7"
       lookupTable [
         1 4095 0.01
@@ -1215,34 +1358,28 @@ Robot {
       ]
     }
     DEF EPUCK_CAMERA Camera {
-      translation 0 0.028 -0.03
-      rotation 1 0 0 0
+      translation 0.03 0 0.028
       children [
         Transform {
           rotation 0 0.7071067811865476 0.7071067811865476 3.14159
           children [
-            Transform {
-              rotation 1 0 0 0
-              children [
-                Shape {
-                  appearance PBRAppearance {
-                    baseColor 0 0 0
-                    roughness 0.4
-                    metalness 0
-                  }
-                  geometry IndexedFaceSet {
-                    coord Coordinate {
-                      point [
-                        -0.003 -0.000175564 0.003, -0.003 -0.00247555 -0.003, -0.003 -0.00247555 -4.65661e-09, -0.003 -0.00247555 0.003, -0.003 -2.55639e-05 0.0035, -0.003 -2.55639e-05 -0.003, -0.003 0.000427256 0.00574979, -0.003 -0.000175564 0.0035, -0.003 0.000557156 0.0056748, -0.003 0.00207465 0.00739718, -0.003 0.00214964 0.00726728, -0.003 0.00432444 0.008, -0.003 0.00432444 0.00785, -0.003 0.00757444 0.008, -0.003 0.00757444 0.0095, -0.003 0.0115744 0.0095, -0.003 0.0115744 0.008, -0.003 0.0128244 0.008, -0.003 0.0128244 0.00785, 0.003 -2.55639e-05 -0.003, 0.003 -0.000175564 0.0035, 0.003 -0.000175564 0.003, 0.003 -0.00247555 0.003, 0.003 -0.00247555 -4.65661e-09, 0.003 -0.00247555 -0.003, 0.003 -2.55639e-05 0.0035, 0.003 0.000427256 0.00574979, 0.003 0.000557156 0.0056748, 0.003 0.00207465 0.00739718, 0.003 0.00214964 0.00726728, 0.003 0.00432444 0.00785, 0.003 0.00432444 0.008, 0.003 0.0115744 0.0095, 0.003 0.00757444 0.0095, 0.003 0.0115744 0.008, 0.003 0.00757444 0.008, 0.003 0.0128244 0.00785, 0.003 0.0128244 0.008, 0 -0.00247555 -0.003, -0.00149971 -0.00247555 -0.0025982, 0.00149971 -0.00247555 -0.0025982, 0.00259801 -0.00247555 -0.00150004, -0.00259801 -0.00247555 -0.00150004, 0.00149971 -0.00247555 0.00259821, 0.00259801 -0.00247555 0.00150005, 0 -0.00247555 0.003, -0.00149971 -0.00247555 0.00259821, -0.00259801 -0.00247555 0.00150005, 0.00212127 -0.00377555 0.00212128, 0 -0.00377555 0.003, -0.00212127 -0.00377555 0.00212128, -0.0015 -0.00377555 0.002, -0.002 -0.00377555 0.0015, -0.003 -0.00377555 -4.65661e-09, 0.0015 -0.00377555 0.002, 0.002 -0.00377555 0.0015, 0.003 -0.00377555 -4.65661e-09, -0.002 -0.00377555 -0.0015, 0.002 -0.00377555 -0.0015, -0.00212127 -0.00377555 -0.0021213, 0.0015 -0.00377555 -0.002, -0.0015 -0.00377555 -0.002, 0.00212127 -0.00377555 -0.0021213, 0 -0.00377555 -0.003, -0.00256063 -0.00377555 0.00106064, -0.00106063 -0.00377555 0.00256064, 0.00106063 -0.00377555 0.00256064, 0.00256063 -0.00377555 0.00106064, 0.00256063 -0.00377555 -0.00106063, 0.00106063 -0.00377555 -0.0025606, -0.00106063 -0.00377555 -0.0025606, -0.00256063 -0.00377555 -0.00106063, 0.0015 -0.00417556 -0.002, 0.002 -0.00417556 -0.0015, -0.0015 -0.00417556 -0.002, -0.002 -0.00417556 -0.0015, 0.002 -0.00417556 0.0015, 0 -0.00417556 0.000245125, 0.00021198 -0.00417556 0.000122716, 0.00021198 -0.00417556 -0.000122714, 0 -0.00417556 -0.000245124, -0.00021198 -0.00417556 -0.000122714, -0.00021198 -0.00417556 0.000122716, -0.002 -0.00417556 0.0015, 0.0015 -0.00417556 0.002, -0.0015 -0.00417556 0.002
-                      ]
-                    }
-                    coordIndex [
-                      33, 14, 35, -1, 13, 35, 14, -1, 15, 32, 16, -1, 34, 16, 32, -1, 14, 33, 15, -1, 32, 15, 33, -1, 72, 74, 60, -1, 61, 60, 74, -1, 74, 75, 61, -1, 57, 61, 75, -1, 75, 83, 57, -1, 52, 57, 83, -1, 83, 85, 52, -1, 51, 52, 85, -1, 85, 84, 51, -1, 54, 51, 84, -1, 84, 76, 54, -1, 55, 54, 76, -1, 76, 73, 55, -1, 58, 55, 73, -1, 73, 72, 58, -1, 60, 58, 72, -1, 72, 73, 74, -1, 75, 74, 73, -1, 76, 77, 78, -1, 76, 78, 79, -1, 79, 80, 75, -1, 79, 75, 73, -1, 73, 76, 79, -1, 75, 80, 81, -1, 75, 81, 82, -1, 82, 77, 76, -1, 82, 76, 83, -1, 83, 75, 82, -1, 76, 84, 83, -1, 85, 83, 84, -1, 56, 68, 23, -1, 41, 23, 68, -1, 68, 62, 41, -1, 40, 41, 62, -1, 62, 69, 40, -1, 40, 69, 63, -1, 38, 40, 63, -1, 63, 70, 38, -1, 39, 38, 70, -1, 70, 59, 39, -1, 42, 39, 59, -1, 59, 71, 42, -1, 42, 71, 53, -1, 2, 42, 53, -1, 53, 64, 2, -1, 47, 2, 64, -1, 64, 50, 47, -1, 46, 47, 50, -1, 50, 65, 46, -1, 46, 65, 49, -1, 45, 46, 49, -1, 49, 66, 45, -1, 43, 45, 66, -1, 66, 48, 43, -1, 44, 43, 48, -1, 48, 67, 44, -1, 44, 67, 56, -1, 23, 44, 56, -1, 48, 49, 50, -1, 51, 48, 50, -1, 52, 51, 50, -1, 50, 53, 52, -1, 48, 51, 54, -1, 48, 54, 55, -1, 56, 48, 55, -1, 57, 52, 53, -1, 55, 58, 56, -1, 59, 60, 61, -1, 59, 61, 57, -1, 53, 59, 57, -1, 60, 59, 62, -1, 58, 60, 62, -1, 62, 56, 58, -1, 59, 63, 62, -1, 0, 45, 22, -1, 21, 0, 22, -1, 45, 0, 3, -1, 38, 39, 1, -1, 40, 38, 24, -1, 41, 40, 24, -1, 24, 23, 41, -1, 1, 39, 42, -1, 2, 1, 42, -1, 22, 43, 44, -1, 23, 22, 44, -1, 45, 43, 22, -1, 46, 45, 3, -1, 47, 46, 3, -1, 3, 2, 47, -1, 20, 26, 7, -1, 6, 7, 26, -1, 26, 28, 6, -1, 9, 6, 28, -1, 28, 31, 9, -1, 11, 9, 31, -1, 31, 35, 11, -1, 13, 11, 35, -1, 34, 37, 16, -1, 17, 16, 37, -1, 36, 18, 37, -1, 17, 37, 18, -1, 36, 30, 18, -1, 12, 18, 30, -1, 4, 8, 25, -1, 27, 25, 8, -1, 8, 10, 27, -1, 29, 27, 10, -1, 10, 12, 29, -1, 30, 29, 12, -1, 25, 19, 4, -1, 5, 4, 19, -1, 24, 38, 19, -1, 19, 38, 1, -1, 5, 19, 1, -1, 20, 7, 21, -1, 0, 21, 7, -1, 19, 20, 21, -1, 19, 21, 22, -1, 19, 22, 23, -1, 24, 19, 23, -1, 20, 19, 25, -1, 26, 20, 25, -1, 25, 27, 26, -1, 28, 26, 27, -1, 27, 29, 28, -1, 28, 29, 30, -1, 31, 28, 30, -1, 32, 33, 34, -1, 34, 33, 35, -1, 36, 34, 35, -1, 36, 35, 31, -1, 30, 36, 31, -1, 37, 34, 36, -1, 0, 1, 2, -1, 3, 0, 2, -1, 0, 4, 5, -1, 1, 0, 5, -1, 4, 0, 6, -1, 6, 0, 7, -1, 8, 4, 6, -1, 6, 9, 8, -1, 10, 8, 9, -1, 9, 11, 10, -1, 12, 10, 11, -1, 11, 13, 12, -1, 14, 15, 13, -1, 13, 15, 16, -1, 12, 13, 16, -1, 12, 16, 17, -1, 18, 12, 17, -1
-                    ]
-                    creaseAngle 0.785398
-                  }
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 0
+                roughness 0.4
+                metalness 0
+              }
+              geometry IndexedFaceSet {
+                coord Coordinate {
+                  point [
+                    -0.0001755 0.003 -0.003, -0.0024755 -0.003 -0.003, -0.0024755 0 -0.003, -0.0024755 0.003 -0.003, -2.55e-05 0.0035 -0.003, -2.55e-05 -0.003 -0.003, 0.0004273 0.0057498 -0.0030001, -0.0001755 0.0035 -0.003, 0.0005572 0.0056748 -0.0030001, 0.0020747 0.0073972 -0.0030001, 0.0021496 0.0072673 -0.0030001, 0.0043244 0.008 -0.0030001, 0.0043244 0.00785 -0.0030001, 0.0075744 0.008 -0.003, 0.0075744 0.0095 -0.0030001, 0.0115744 0.0095 -0.003, 0.0115744 0.008 -0.0029999, 0.0128244 0.008 -0.0029999, 0.0128244 0.00785 -0.0029999, -2.56e-05 -0.003 0.003, -0.0001756 0.0035 0.003, -0.0001756 0.003 0.003, -0.0024756 0.003 0.003, -0.0024756 0 0.003, -0.0024756 -0.003 0.003, -2.56e-05 0.0035 0.003, 0.0004272 0.0057498 0.0029999, 0.0005571 0.0056748 0.0029999, 0.0020746 0.0073972 0.0029999, 0.0021496 0.0072673 0.0029999, 0.0043244 0.00785 0.0029999, 0.0043244 0.008 0.0029999, 0.0115743 0.0095002 0.003, 0.0075744 0.0095001 0.0029999, 0.0115743 0.0080002 0.0030001, 0.0075744 0.0080001 0.003, 0.0128243 0.0078502 0.0030001, 0.0128243 0.0080002 0.0030001, -0.0024755 -0.003 0, -0.0024755 -0.0025982 -0.0014997, -0.0024756 -0.0025982 0.0014997, -0.0024756 -0.0015 0.002598, -0.0024755 -0.0015001 -0.002598, -0.0024756 0.0025982 0.0014997, -0.0024756 0.0015001 0.002598, -0.0024756 0.003 0, -0.0024755 0.0025982 -0.0014997, -0.0024755 0.0015 -0.002598, -0.0037756 0.0021213 0.0021212, -0.0037756 0.003 0, -0.0037755 0.0021213 -0.0021213, -0.0037755 0.002 -0.0015, -0.0037755 0.0015 -0.002, -0.0037755 0 -0.003, -0.0037756 0.002 0.0015, -0.0037756 0.0015 0.002, -0.0037756 0 0.003, -0.0037755 -0.0015 -0.002, -0.0037756 -0.0015 0.002, -0.0037755 -0.0021213 -0.0021213, -0.0037756 -0.002 0.0015, -0.0037755 -0.002 -0.0015, -0.0037756 -0.0021213 0.0021212, -0.0037755 -0.003 0, -0.0037755 0.0010606 -0.0025607, -0.0037755 0.0025606 -0.0010607, -0.0037756 0.0025606 0.0010606, -0.0037756 0.0010606 0.0025606, -0.0037756 -0.0010606 0.0025606, -0.0037756 -0.0025606 0.0010606, -0.0037755 -0.0025606 -0.0010607, -0.0037755 -0.0010607 -0.0025607, -0.0041756 -0.002 0.0015, -0.0041756 -0.0015 0.002, -0.0041755 -0.002 -0.0015, -0.0041755 -0.0015 -0.002, -0.0041756 0.0015 0.002, -0.0041756 0.0002451 0, -0.0041756 0.0001227 0.0002119, -0.0041756 -0.0001227 0.0002119, -0.0041756 -0.0002451 0, -0.0041756 -0.0001227 -0.000212, -0.0041756 0.0001227 -0.000212, -0.0041755 0.0015 -0.002, -0.0041756 0.002 0.0014999, -0.0041756 0.002 -0.0015001
+                  ]
                 }
-              ]
+                coordIndex [
+                  33, 14, 35, -1, 13, 35, 14, -1, 15, 32, 16, -1, 34, 16, 32, -1, 14, 33, 15, -1, 32, 15, 33, -1, 72, 74, 60, -1, 61, 60, 74, -1, 74, 75, 61, -1, 57, 61, 75, -1, 75, 83, 57, -1, 52, 57, 83, -1, 83, 85, 52, -1, 51, 52, 85, -1, 85, 84, 51, -1, 54, 51, 84, -1, 84, 76, 54, -1, 55, 54, 76, -1, 76, 73, 55, -1, 58, 55, 73, -1, 73, 72, 58, -1, 60, 58, 72, -1, 72, 73, 74, -1, 75, 74, 73, -1, 76, 77, 78, -1, 76, 78, 79, -1, 79, 80, 75, -1, 79, 75, 73, -1, 73, 76, 79, -1, 75, 80, 81, -1, 75, 81, 82, -1, 82, 77, 76, -1, 82, 76, 83, -1, 83, 75, 82, -1, 76, 84, 83, -1, 85, 83, 84, -1, 56, 68, 23, -1, 41, 23, 68, -1, 68, 62, 41, -1, 40, 41, 62, -1, 62, 69, 40, -1, 40, 69, 63, -1, 38, 40, 63, -1, 63, 70, 38, -1, 39, 38, 70, -1, 70, 59, 39, -1, 42, 39, 59, -1, 59, 71, 42, -1, 42, 71, 53, -1, 2, 42, 53, -1, 53, 64, 2, -1, 47, 2, 64, -1, 64, 50, 47, -1, 46, 47, 50, -1, 50, 65, 46, -1, 46, 65, 49, -1, 45, 46, 49, -1, 49, 66, 45, -1, 43, 45, 66, -1, 66, 48, 43, -1, 44, 43, 48, -1, 48, 67, 44, -1, 44, 67, 56, -1, 23, 44, 56, -1, 48, 49, 50, -1, 51, 48, 50, -1, 52, 51, 50, -1, 50, 53, 52, -1, 48, 51, 54, -1, 48, 54, 55, -1, 56, 48, 55, -1, 57, 52, 53, -1, 55, 58, 56, -1, 59, 60, 61, -1, 59, 61, 57, -1, 53, 59, 57, -1, 60, 59, 62, -1, 58, 60, 62, -1, 62, 56, 58, -1, 59, 63, 62, -1, 0, 45, 22, -1, 21, 0, 22, -1, 45, 0, 3, -1, 38, 39, 1, -1, 40, 38, 24, -1, 41, 40, 24, -1, 24, 23, 41, -1, 1, 39, 42, -1, 2, 1, 42, -1, 22, 43, 44, -1, 23, 22, 44, -1, 45, 43, 22, -1, 46, 45, 3, -1, 47, 46, 3, -1, 3, 2, 47, -1, 20, 26, 7, -1, 6, 7, 26, -1, 26, 28, 6, -1, 9, 6, 28, -1, 28, 31, 9, -1, 11, 9, 31, -1, 31, 35, 11, -1, 13, 11, 35, -1, 34, 37, 16, -1, 17, 16, 37, -1, 36, 18, 37, -1, 17, 37, 18, -1, 36, 30, 18, -1, 12, 18, 30, -1, 4, 8, 25, -1, 27, 25, 8, -1, 8, 10, 27, -1, 29, 27, 10, -1, 10, 12, 29, -1, 30, 29, 12, -1, 25, 19, 4, -1, 5, 4, 19, -1, 24, 38, 19, -1, 19, 38, 1, -1, 5, 19, 1, -1, 20, 7, 21, -1, 0, 21, 7, -1, 19, 20, 21, -1, 19, 21, 22, -1, 19, 22, 23, -1, 24, 19, 23, -1, 20, 19, 25, -1, 26, 20, 25, -1, 25, 27, 26, -1, 28, 26, 27, -1, 27, 29, 28, -1, 28, 29, 30, -1, 31, 28, 30, -1, 32, 33, 34, -1, 34, 33, 35, -1, 36, 34, 35, -1, 36, 35, 31, -1, 30, 36, 31, -1, 37, 34, 36, -1, 0, 1, 2, -1, 3, 0, 2, -1, 0, 4, 5, -1, 1, 0, 5, -1, 4, 0, 6, -1, 6, 0, 7, -1, 8, 4, 6, -1, 6, 9, 8, -1, 10, 8, 9, -1, 9, 11, 10, -1, 12, 10, 11, -1, 11, 13, 12, -1, 14, 15, 13, -1, 13, 15, 16, -1, 12, 13, 16, -1, 12, 16, 17, -1, 18, 12, 17, -1
+                ]
+                creaseAngle 0.785398
+              }
             }
           ]
         }
@@ -1255,7 +1392,7 @@ Robot {
       }
     }
     DEF EPUCK_LED0 LED {
-      translation 0 0.041 -0.0337
+      translation 0.0337 0 0.041
       children [
         Shape {
           appearance PBRAppearance {
@@ -1265,15 +1402,15 @@ Robot {
             emissiveIntensity 100
           }
           geometry DEF EPUCK_LED_GEOMETRY Box {
-            size 0.004 0.003 0.003
+            size 0.003 0.004 0.003
           }
         }
       ]
       name "led0"
     }
     DEF EPUCK_LED1 LED {
-      translation 0.025 0.041 -0.022
-      rotation 0 1 0 5.5
+      translation 0.022 -0.025 0.041
+      rotation 0 0 1 5.5
       children [
         Shape {
           appearance PBRAppearance {
@@ -1288,8 +1425,8 @@ Robot {
       name "led1"
     }
     DEF EPUCK_LED2 LED {
-      translation 0.0337 0.041 0
-      rotation 0 1 0 1.57
+      translation 0 -0.0337 0.041
+      rotation 0 0 1 1.57
       children [
         Shape {
           appearance PBRAppearance {
@@ -1304,8 +1441,8 @@ Robot {
       name "led2"
     }
     DEF EPUCK_LED3 LED {
-      translation 0.0201 0.041 0.027
-      rotation 0 1 0 -5.65
+      translation -0.027 -0.0201 0.041
+      rotation 0 0 1 -5.65
       children [
         Shape {
           appearance PBRAppearance {
@@ -1320,7 +1457,7 @@ Robot {
       name "led3"
     }
     DEF EPUCK_LED4 LED {
-      translation 0 0.041 0.033
+      translation -0.033 0 0.041
       children [
         Shape {
           appearance PBRAppearance {
@@ -1332,22 +1469,22 @@ Robot {
           geometry IndexedFaceSet {
             coord Coordinate {
               point [
-                0.0075 0.00225 0.0013
-                0.0025 0.00225 0.002
-                0.0025 -0.00225 0.002
-                0.0075 -0.00225 0.0013
-                0.0075 0.00225 -0.0017
-                0.0025 0.00225 -0.001
-                0.0025 -0.00225 -0.001
-                0.0075 -0.00225 -0.0017
-                -0.0075 0.00225 0.0013
-                -0.0025 0.00225 0.002
-                -0.0025 -0.00225 0.002
-                -0.0075 -0.00225 0.0013
-                -0.0075 0.00225 -0.0017
-                -0.0025 0.00225 -0.001
-                -0.0025 -0.00225 -0.001
-                -0.0075 -0.00225 -0.0017
+                -0.0013 -0.0075 0.00225
+                -0.002 -0.0025 0.00225
+                -0.002 -0.0025 -0.00225
+                -0.0013 -0.0075 -0.00225
+                0.0017 -0.0075 0.00225
+                0.001 -0.0025 0.00225
+                0.001 -0.0025 -0.00225
+                0.0017 -0.0075 -0.00225
+                -0.0013 0.0075 0.0022501
+                -0.002 0.0025 0.00225
+                -0.002 0.0025 -0.00225
+                -0.0013 0.0075 -0.00225
+                0.0017 0.0075 0.00225
+                0.001 0.0025 0.00225
+                0.001 0.0025 -0.00225
+                0.0017 0.0075 -0.00225
               ]
             }
             coordIndex [
@@ -1359,8 +1496,8 @@ Robot {
       name "led4"
     }
     DEF EPUCK_LED5 LED {
-      translation -0.0201 0.041 0.027
-      rotation 0 1 0 5.65
+      translation -0.027 0.0201 0.041
+      rotation 0 0 1 5.65
       children [
         Shape {
           appearance PBRAppearance {
@@ -1375,8 +1512,8 @@ Robot {
       name "led5"
     }
     DEF EPUCK_LED6 LED {
-      translation -0.0337 0.041 0
-      rotation 0 1 0 1.57
+      translation 0 0.0337 0.041
+      rotation 0 0 1 1.57
       children [
         Shape {
           appearance PBRAppearance {
@@ -1391,8 +1528,8 @@ Robot {
       name "led6"
     }
     DEF EPUCK_LED7 LED {
-      translation -0.025 0.041 -0.022
-      rotation 0 1 0 -5.5
+      translation 0.022 0.025 0.041
+      rotation 0 0 1 -5.5
       children [
         Shape {
           appearance PBRAppearance {
@@ -1407,7 +1544,7 @@ Robot {
       name "led7"
     }
     DEF EPUCK_BODY_LED LED {
-      rotation 0 1 0 4.712399693899575
+      rotation 0 0 1 4.712399693899575
       children [
         Shape {
           appearance PBRAppearance {
@@ -1420,7 +1557,7 @@ Robot {
           geometry IndexedFaceSet {
             coord Coordinate {
               point [
-                0 0 0, 0.031522 0.025 0.015211, 0.031522 0.009 0.015211, 0.020982 0.00775 0.022017, 0.033472 0.006 0.009667, 0.029252 0.009825 0.018942, 0.016991 0.00101 0.022014, -0.022019 0.037 0.021983, -0.022018 0.025 0.021982, 0.02707 0.001064 0.00781, 0.027116 0.037 0.00781, -0.034656 0.031 0.003517, 0.026971 0.025 0.022022, 0.02707 0.01 0.022022, -0.027018 0.001 0.021978, -0.034312 0.031 0.005972, -0.034677 0.02633 0.003018, 0.035 0.037 2.9e-05, -0.031546 0.001 0.015161, -0.027018 0.037 0.021981, -0.027018 0.025 0.02198, -0.034312 0.025 0.005972, -0.034312 0.001 0.005972, -0.035 0.001 -2.7e-05, -0.035 0.025 -2.7e-05, -0.031312 0.025 0.005974, -0.031312 0.031 0.005974, -0.031656 0.031 0.00352, -0.032002 0.02633 0.003, -0.026442 0.025 -2.4e-05, -0.031546 0.037 0.015161, -0.031546 0.025 0.015161, 0.034116 0.001 0.007816, 0.034116 0.037 0.007816, 0.034116 0.025 0.007816, 0.035 0.001 2.9e-05, 0.034129 0.025 -0.007759, 0.034129 0.037 -0.007759, 0.034129 0.001 -0.007759, -0.031522 0.025 -0.015209, -0.031522 0.037 -0.015209, -0.031998 0.02633 -0.003049, -0.031651 0.031 -0.003568, -0.031302 0.031 -0.006022, -0.031302 0.025 -0.006022, -0.034302 0.001 -0.006024, -0.034302 0.025 -0.006024, -0.021982 0.025 -0.022015, -0.026983 0.025 -0.022021, -0.031522 0.001 -0.015209, -0.026983 0.001 -0.022019, -0.034672 0.02633 -0.003071, -0.034302 0.031 -0.006024, -0.026983 0.037 -0.022022, 0.031546 0.025 -0.015158, 0.031546 0.009 -0.015158, 0.027018 0.01 -0.021976, 0.026971 0.025 -0.021976, -0.034651 0.031 -0.00357, 0.027129 0.037 -0.007764, 0.02707 0.001064 -0.007764, -0.021983 0.037 -0.022015, 0.017026 0.00101 -0.021984, 0.029282 0.009825 -0.018893, 0.033487 0.006 -0.009611, 0.021018 0.00775 -0.021981, -0.022012 0.001029 0.021984, -0.021988 0.001029 -0.022017, -0.022012 0.002114 0.020705, -0.021988 0.002114 -0.020739, 0.020982 0.007866 0.021216, 0.02707 0.006116 0.009667, 0.02707 0.009941 0.018942, 0.016991 0.001125 0.021213, 0.02707 0.010116 0.021221, 0.02707 0.009116 0.015211, -0.026411 0.037 -0.020914, 0.02707 0.010116 -0.021175, 0.017026 0.001125 -0.021183, 0.02707 0.009941 -0.018893, 0.02707 0.006116 -0.009611, 0.021018 0.007866 -0.02118, 0.02707 0.009116 -0.015158, 0.026971 0.025 0.02126, 0.026971 0.025 0.015211, 0.027032 0.024944 0.007813, 0.027035 0.024936 -0.007761, 0.026971 0.025 -0.021174, 0.026971 0.025 -0.015158, -0.022018 0.025 0.020881, -0.022019 0.037 0.020881, -0.021982 0.025 -0.020913, -0.021983 0.037 -0.020914, -0.022012 0.001029 0.020691, -0.021988 0.001029 -0.020724, -0.030453 0.025 0.014633, -0.030453 0.03692 0.014633, -0.030444 0.03692 -0.01468, -0.030444 0.025 -0.01468, -0.026555 0.037 0.02095, -0.026555 0.02482 0.02095, -0.026442 0.001685 0.014633, -0.026555 0.001504 0.02095, -0.026411 0.025004 -0.020914, -0.026442 0.001774 -0.01468, -0.026411 0.001778 -0.020914, -0.028504 0.03696 0.017791, -0.029479 0.03694 0.016212, -0.028427 0.03696 -0.017797, -0.026442 0.036868 -0.01468, -0.029436 0.03694 -0.016239, -0.026442 0.036868 0.014633, -0.026442 0.025 0.014633, -0.026442 0.025 -0.01468, -0.026426 0.036934 -0.017797, -0.026498 0.036934 0.017791, 0.030629 0.037 -0.007761, 0.027122 0.037 2.3e-05, 0.031064 0.037 -0.003868
+                0 0 0, -0.0152112 -0.0315222 0.0249996, -0.0152111 -0.031522 0.0089996, -0.0220171 -0.020982 0.0077497, -0.0096671 -0.033472 0.0059996, -0.0189421 -0.029252 0.0098246, -0.0220141 -0.0169909 0.0010097, -0.0219831 0.0220187 0.0370002, -0.021982 0.0220178 0.0250002, -0.0078101 -0.02707 0.0010637, -0.0078102 -0.0271164 0.0369997, -0.003517 0.0346557 0.0310004, -0.0220222 -0.0269712 0.0249996, -0.0220221 -0.02707 0.0099996, -0.0219779 0.0270181 0.0010002, -0.005972 0.0343117 0.0310003, -0.003018 0.0346767 0.0263304, -2.93e-05 -0.0350004 0.0369996, -0.0151609 0.031546 0.0010003, -0.021981 0.0270177 0.0370002, -0.02198 0.0270178 0.0250002, -0.005972 0.0343118 0.0250003, -0.0059719 0.034312 0.0010003, 2.71e-05 0.035 0.0010004, 2.7e-05 0.0349997 0.0250004, -0.005974 0.0313118 0.0250003, -0.005974 0.0313117 0.0310003, -0.00352 0.0316557 0.0310003, -0.003 0.0320017 0.0263303, 2.4e-05 0.0264417 0.0250003, -0.015161 0.0315457 0.0370003, -0.015161 0.0315458 0.0250003, -0.0078161 -0.034116 0.0009996, -0.0078163 -0.0341164 0.0369996, -0.0078162 -0.0341162 0.0249996, -2.91e-05 -0.035 0.0009996, 0.0077588 -0.0341293 0.0249997, 0.0077587 -0.0341294 0.0369997, 0.0077589 -0.034129 0.0009997, 0.015209 0.0315217 0.0250004, 0.015209 0.0315216 0.0370004, 0.003049 0.0319977 0.0263303, 0.003568 0.0316507 0.0310003, 0.006022 0.0313017 0.0310004, 0.006022 0.0313017 0.0250004, 0.0060241 0.034302 0.0010004, 0.006024 0.0343017 0.0250004, 0.022015 0.0219817 0.0250003, 0.022021 0.0269827 0.0250004, 0.0152091 0.0315219 0.0010004, 0.0220191 0.0269829 0.0010004, 0.003071 0.0346717 0.0263304, 0.006024 0.0343017 0.0310004, 0.022022 0.0269825 0.0370004, 0.0151578 -0.0315463 0.0249997, 0.0151579 -0.0315461 0.0089997, 0.0219759 -0.0270182 0.0099998, 0.0219758 -0.0269713 0.0249998, 0.00357 0.0346507 0.0310004, 0.0077638 -0.0271294 0.0369997, 0.0077639 -0.02707 0.0010637, 0.0220149 0.0219825 0.0370003, 0.0219839 -0.0170261 0.0010099, 0.0188929 -0.0292822 0.0098248, 0.0096109 -0.0334871 0.0059997, 0.0219809 -0.0210182 0.0077499, -0.0219839 0.0220121 0.0010292, 0.0220171 0.0219879 0.0010293, -0.0207049 0.0220121 0.0021142, 0.0207391 0.0219879 0.0021143, -0.0212161 -0.020982 0.0078657, -0.0096671 -0.02707 0.0061157, -0.0189421 -0.02707 0.0099406, -0.0212131 -0.0169909 0.0011247, -0.0212211 -0.02707 0.0101156, -0.0152111 -0.02707 0.0091157, 0.020914 0.0264105 0.0370004, 0.0211749 -0.0270702 0.0101158, 0.0211829 -0.0170261 0.0011249, 0.0188929 -0.0270702 0.0099408, 0.0096109 -0.0270701 0.0061157, 0.0211799 -0.0210182 0.0078659, 0.0151579 -0.0270702 0.0091158, -0.0212602 -0.0269712 0.0249996, -0.0152112 -0.0269712 0.0249997, -0.0078132 -0.0270322 0.0249437, 0.0077608 -0.0270353 0.0249357, 0.0211738 -0.0269713 0.0249998, 0.0151578 -0.0269713 0.0249998, -0.020881 0.0220178 0.0250002, -0.0208811 0.0220187 0.0370002, 0.020913 0.0219817 0.0250003, 0.0209139 0.0219825 0.0370003, -0.0206909 0.0220121 0.0010292, 0.0207241 0.0219879 0.0010293, -0.014633 0.0304528 0.0250003, -0.014633 0.0304527 0.0369203, 0.01468 0.0304436 0.0369204, 0.01468 0.0304437 0.0250004, -0.02095 0.0265547 0.0370002, -0.02095 0.0265548 0.0248202, -0.0146329 0.026442 0.0016852, -0.0209499 0.0265551 0.0015042, 0.020914 0.0264107 0.0250044, 0.0146801 0.0264419 0.0017743, 0.0209141 0.0264109 0.0017784, -0.017791 0.0285037 0.0369602, -0.016212 0.0294787 0.0369403, 0.017797 0.0284265 0.0369604, 0.01468 0.0264416 0.0368683, 0.016239 0.0294356 0.0369404, -0.014633 0.0264417 0.0368682, -0.014633 0.0264418 0.0250002, 0.01468 0.0264417 0.0250003, 0.017797 0.0264255 0.0369343, -0.017791 0.0264977 0.0369342, 0.0077608 -0.0306294 0.0369997, -2.32e-05 -0.0271224 0.0369997, 0.0038678 -0.0310644 0.0369997
               ]
             }
             coordIndex [
@@ -1436,7 +1573,7 @@ Robot {
       ]
     }
     DEF EPUCK_FRONT_LED LED {
-      translation 0.0125 0.0285 -0.031
+      translation 0.031 -0.0125 0.0285
       children [
         Shape {
           appearance PBRAppearance {
@@ -1456,28 +1593,26 @@ Robot {
       ]
     }
     DEF EPUCK_ACCELEROMETER Accelerometer {
-      rotation 1 0 0 -1.57
       lookupTable [
         -100 -100 0.003
         100 100 0.003
       ]
     }
     DEF EPUCK_GYRO Gyro {
-      rotation 1 0 0 -1.57
       lookupTable [
         -13.315805 -100000 0.003
         13.315805 100000 0.003
       ]
     }
     DEF EPUCK_SMALL_LOGO Transform {
-      translation 0 0.031 0.035
-      rotation 0 1 0 3.14159
+      translation -0.035 0 0.031
+      rotation 0 0 -1 3.14159
       children [
         Shape {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/gctronic_logo.png"
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/robots/gctronic/e-puck/protos/textures/gctronic_logo.png"
               ]
             }
             roughness 0.4
@@ -1486,10 +1621,10 @@ Robot {
           geometry IndexedFaceSet {
             coord Coordinate {
               point [
-                0.005 -0.005 0
-                -0.005 -0.005 0
-                -0.005 0.005 0
-                0.005 0.005 0
+                0 -0.005 -0.005
+                0 0.005 -0.005
+                0 0.005 0.005
+                0 -0.005 0.005
               ]
             }
             texCoord TextureCoordinate {
@@ -1511,26 +1646,26 @@ Robot {
       ]
     }
     DEF EPUCK_RING Solid {
-      translation 0 0.0393 0
+      translation 0 0 0.0393
       children [
         Shape {
           appearance USE EPUCK_TRANSPARENT_APPEARANCE
           geometry IndexedFaceSet {
             coord Coordinate {
               point [
-                2.1798713024823e-18 0.0035 -0.0356, 0.0034894101957324 0.0035 -0.03542857626953, 0.0069452154637742 0.0035 -0.034915955982355, 0.010334134510259 0.0035 -0.034067075952067, 0.013623530192197 0.0035 -0.032890111357402, 0.016781723831006 0.0035 -0.031396397010801, 0.019778300295498 0.0035 -0.029600318197971, 0.022584400916226 0.0035 -0.027519172139713, 0.025173001410241 0.0035 -0.025173001410241, 0.027519172139713 0.0035 -0.022584400916226, 0.029600318197971 0.0035 -0.019778300295498, 0.031396397010801 0.0035 -0.016781723831006, 0.032890111357402 0.0035 -0.013623530192197, 0.034067075952067 0.0035 -0.010334134510259, 0.034915955982355 0.0035 -0.0069452154637742, 0.03542857626953 0.0035 -0.0034894101957324, 0.0356 0.0035 0, 0.03542857626953 0.0035 0.0034894101957324, 0.034915955982355 0.0035 0.0069452154637742, 0.034067075952067 0.0035 0.010334134510259, 0.032890111357402 0.0035 0.013623530192197, 0.031396397010801 0.0035 0.016781723831006, 0.029600318197971 0.0035 0.019778300295498, 0.027519172139713 0.0035 0.022584400916226, 0.025173001410241 0.0035 0.025173001410241, 0.022584400916226 0.0035 0.027519172139713, 0.019778300295498 0.0035 0.029600318197971, 0.016781723831006 0.0035 0.031396397010801, 0.013623530192197 0.0035 0.032890111357402, 0.010334134510259 0.0035 0.034067075952067, 0.0069452154637742 0.0035 0.034915955982355, 0.0034894101957324 0.0035 0.03542857626953, 2.1798713024823e-18 0.0035 0.0356, -0.0034894101957324 0.0035 0.03542857626953, -0.0069452154637742 0.0035 0.034915955982355, -0.010334134510259 0.0035 0.034067075952067, -0.013623530192197 0.0035 0.032890111357402, -0.016781723831006 0.0035 0.031396397010801, -0.019778300295498 0.0035 0.029600318197971, -0.022584400916226 0.0035 0.027519172139713, -0.025173001410241 0.0035 0.025173001410241, -0.027519172139713 0.0035 0.022584400916226, -0.029600318197971 0.0035 0.019778300295498, -0.031396397010801 0.0035 0.016781723831006, -0.032890111357402 0.0035 0.013623530192197, -0.034067075952067 0.0035 0.010334134510259, -0.034915955982355 0.0035 0.0069452154637742, -0.03542857626953 0.0035 0.0034894101957324, -0.0356 0.0035 4.3597426049646e-18, -0.03542857626953 0.0035 -0.0034894101957323, -0.034915955982355 0.0035 -0.0069452154637742, -0.034067075952067 0.0035 -0.010334134510259, -0.032890111357402 0.0035 -0.013623530192197, -0.031396397010801 0.0035 -0.016781723831006, -0.029600318197971 0.0035 -0.019778300295498, -0.027519172139713 0.0035 -0.022584400916226, -0.025173001410241 0.0035 -0.025173001410241, -0.022584400916226 0.0035 -0.027519172139713, -0.019778300295498 0.0035 -0.029600318197971, -0.016781723831006 0.0035 -0.031396397010801, -0.013623530192197 0.0035 -0.032890111357402, -0.010334134510259 0.0035 -0.034067075952067, -0.0069452154637742 0.0035 -0.034915955982355, -0.0034894101957324 0.0035 -0.03542857626953, -6.5396139074469e-18 0.0035 -0.0356, 1.9375676931037e-18 0.0035 -0.031642881759096, 0.003101544781813 0.0035 -0.031490512634546, 0.0061732199919003 0.0035 -0.031034872658861, 0.0091854437188403 0.0035 -0.030280349894084, 0.012109206601493 0.0035 -0.029234210806903, 0.014916351205009 0.0035 -0.027906530288607, 0.017579843192313 0.0035 -0.026310094628371, 0.020074031679555 0.0035 -0.024460278374302, 0.022374896268141 0.0035 -0.022374896268141, 0.024460278374302 0.0035 -0.020074031679555, 0.026310094628371 0.0035 -0.017579843192313, 0.027906530288607 0.0035 -0.014916351205009, 0.029234210806903 0.0035 -0.012109206601493, 0.030280349894084 0.0035 -0.0091854437188403, 0.031034872658861 0.0035 -0.0061732199919003, 0.031490512634546 0.0035 -0.003101544781813, 0.031642881759096 0.0035 0, 0.031490512634546 0.0035 0.003101544781813, 0.031034872658861 0.0035 0.0061732199919003, 0.030280349894084 0.0035 0.0091854437188403, 0.029234210806903 0.0035 0.012109206601493, 0.027906530288607 0.0035 0.014916351205009, 0.026310094628371 0.0035 0.017579843192313, 0.024460278374302 0.0035 0.020074031679555, 0.022374896268141 0.0035 0.022374896268141, 0.020074031679555 0.0035 0.024460278374302, 0.017579843192313 0.0035 0.026310094628371, 0.014916351205009 0.0035 0.027906530288607, 0.012109206601493 0.0035 0.029234210806903, 0.0091854437188403 0.0035 0.030280349894084, 0.0061732199919003 0.0035 0.031034872658861, 0.003101544781813 0.0035 0.031490512634546, 1.9375676931037e-18 0.0035 0.031642881759096, -0.003101544781813 0.0035 0.031490512634546, -0.0061732199919003 0.0035 0.031034872658861, -0.0091854437188403 0.0035 0.030280349894084, -0.012109206601493 0.0035 0.029234210806903, -0.014916351205009 0.0035 0.027906530288607, -0.017579843192313 0.0035 0.026310094628371, -0.020074031679555 0.0035 0.024460278374302, -0.022374896268141 0.0035 0.022374896268141, -0.024460278374302 0.0035 0.020074031679555, -0.026310094628371 0.0035 0.017579843192313, -0.027906530288607 0.0035 0.014916351205009, -0.029234210806903 0.0035 0.012109206601494, -0.030280349894084 0.0035 0.0091854437188403, -0.031034872658861 0.0035 0.0061732199919003, -0.031490512634546 0.0035 0.003101544781813, -0.031642881759096 0.0035 3.8751353862075e-18, -0.031490512634546 0.0035 -0.003101544781813, -0.031034872658861 0.0035 -0.0061732199919003, -0.030280349894084 0.0035 -0.0091854437188403, -0.029234210806903 0.0035 -0.012109206601494, -0.027906530288607 0.0035 -0.014916351205009, -0.026310094628371 0.0035 -0.017579843192313, -0.024460278374302 0.0035 -0.020074031679555, -0.022374896268141 0.0035 -0.022374896268141, -0.020074031679555 0.0035 -0.024460278374302, -0.017579843192313 0.0035 -0.026310094628371, -0.014916351205009 0.0035 -0.027906530288607, -0.012109206601494 0.0035 -0.029234210806903, -0.0091854437188403 0.0035 -0.030280349894084, -0.0061732199919003 0.0035 -0.031034872658861, -0.003101544781813 0.0035 -0.031490512634546, -5.8127030793112e-18 0.0035 -0.031642881759096, 2.1798713024823e-18 -0.0035 -0.0356, 0.0034894101957324 -0.0035 -0.03542857626953, 0.0069452154637742 -0.0035 -0.034915955982355, 0.010334134510259 -0.0035 -0.034067075952067, 0.013623530192197 -0.0035 -0.032890111357402, 0.016781723831006 -0.0035 -0.031396397010801, 0.019778300295498 -0.0035 -0.029600318197971, 0.022584400916226 -0.0035 -0.027519172139713, 0.025173001410241 -0.0035 -0.025173001410241, 0.027519172139713 -0.0035 -0.022584400916226, 0.029600318197971 -0.0035 -0.019778300295498, 0.031396397010801 -0.0035 -0.016781723831006, 0.032890111357402 -0.0035 -0.013623530192197, 0.034067075952067 -0.0035 -0.010334134510259, 0.034915955982355 -0.0035 -0.0069452154637742, 0.03542857626953 -0.0035 -0.0034894101957324, 0.0356 -0.0035 0, 0.03542857626953 -0.0035 0.0034894101957324, 0.034915955982355 -0.0035 0.0069452154637742, 0.034067075952067 -0.0035 0.010334134510259, 0.032890111357402 -0.0035 0.013623530192197, 0.031396397010801 -0.0035 0.016781723831006, 0.029600318197971 -0.0035 0.019778300295498, 0.027519172139713 -0.0035 0.022584400916226, 0.025173001410241 -0.0035 0.025173001410241, 0.022584400916226 -0.0035 0.027519172139713, 0.019778300295498 -0.0035 0.029600318197971, 0.016781723831006 -0.0035 0.031396397010801, 0.013623530192197 -0.0035 0.032890111357402, 0.010334134510259 -0.0035 0.034067075952067, 0.0069452154637742 -0.0035 0.034915955982355, 0.0034894101957324 -0.0035 0.03542857626953, 2.1798713024823e-18 -0.0035 0.0356, -0.0034894101957324 -0.0035 0.03542857626953, -0.0069452154637742 -0.0035 0.034915955982355, -0.010334134510259 -0.0035 0.034067075952067, -0.013623530192197 -0.0035 0.032890111357402, -0.016781723831006 -0.0035 0.031396397010801, -0.019778300295498 -0.0035 0.029600318197971, -0.022584400916226 -0.0035 0.027519172139713, -0.025173001410241 -0.0035 0.025173001410241, -0.027519172139713 -0.0035 0.022584400916226, -0.029600318197971 -0.0035 0.019778300295498, -0.031396397010801 -0.0035 0.016781723831006, -0.032890111357402 -0.0035 0.013623530192197, -0.034067075952067 -0.0035 0.010334134510259, -0.034915955982355 -0.0035 0.0069452154637742, -0.03542857626953 -0.0035 0.0034894101957324, -0.0356 -0.0035 4.3597426049646e-18, -0.03542857626953 -0.0035 -0.0034894101957323, -0.034915955982355 -0.0035 -0.0069452154637742, -0.034067075952067 -0.0035 -0.010334134510259, -0.032890111357402 -0.0035 -0.013623530192197, -0.031396397010801 -0.0035 -0.016781723831006, -0.029600318197971 -0.0035 -0.019778300295498, -0.027519172139713 -0.0035 -0.022584400916226, -0.025173001410241 -0.0035 -0.025173001410241, -0.022584400916226 -0.0035 -0.027519172139713, -0.019778300295498 -0.0035 -0.029600318197971, -0.016781723831006 -0.0035 -0.031396397010801, -0.013623530192197 -0.0035 -0.032890111357402, -0.010334134510259 -0.0035 -0.034067075952067, -0.0069452154637742 -0.0035 -0.034915955982355, -0.0034894101957324 -0.0035 -0.03542857626953, -6.5396139074469e-18 -0.0035 -0.0356, 1.9375676931037e-18 -0.0035 -0.031642881759096, 0.003101544781813 -0.0035 -0.031490512634546, 0.0061732199919003 -0.0035 -0.031034872658861, 0.0091854437188403 -0.0035 -0.030280349894084, 0.012109206601493 -0.0035 -0.029234210806903, 0.014916351205009 -0.0035 -0.027906530288607, 0.017579843192313 -0.0035 -0.026310094628371, 0.020074031679555 -0.0035 -0.024460278374302, 0.022374896268141 -0.0035 -0.022374896268141, 0.024460278374302 -0.0035 -0.020074031679555, 0.026310094628371 -0.0035 -0.017579843192313, 0.027906530288607 -0.0035 -0.014916351205009, 0.029234210806903 -0.0035 -0.012109206601493, 0.030280349894084 -0.0035 -0.0091854437188403, 0.031034872658861 -0.0035 -0.0061732199919003, 0.031490512634546 -0.0035 -0.003101544781813, 0.031642881759096 -0.0035 0, 0.031490512634546 -0.0035 0.003101544781813, 0.031034872658861 -0.0035 0.0061732199919003, 0.030280349894084 -0.0035 0.0091854437188403, 0.029234210806903 -0.0035 0.012109206601493, 0.027906530288607 -0.0035 0.014916351205009, 0.026310094628371 -0.0035 0.017579843192313, 0.024460278374302 -0.0035 0.020074031679555, 0.022374896268141 -0.0035 0.022374896268141, 0.020074031679555 -0.0035 0.024460278374302, 0.017579843192313 -0.0035 0.026310094628371, 0.014916351205009 -0.0035 0.027906530288607, 0.012109206601493 -0.0035 0.029234210806903, 0.0091854437188403 -0.0035 0.030280349894084, 0.0061732199919003 -0.0035 0.031034872658861, 0.003101544781813 -0.0035 0.031490512634546, 1.9375676931037e-18 -0.0035 0.031642881759096, -0.003101544781813 -0.0035 0.031490512634546, -0.0061732199919003 -0.0035 0.031034872658861, -0.0091854437188403 -0.0035 0.030280349894084, -0.012109206601493 -0.0035 0.029234210806903, -0.014916351205009 -0.0035 0.027906530288607, -0.017579843192313 -0.0035 0.026310094628371, -0.020074031679555 -0.0035 0.024460278374302, -0.022374896268141 -0.0035 0.022374896268141, -0.024460278374302 -0.0035 0.020074031679555, -0.026310094628371 -0.0035 0.017579843192313, -0.027906530288607 -0.0035 0.014916351205009, -0.029234210806903 -0.0035 0.012109206601494, -0.030280349894084 -0.0035 0.0091854437188403, -0.031034872658861 -0.0035 0.0061732199919003, -0.031490512634546 -0.0035 0.003101544781813, -0.031642881759096 -0.0035 3.8751353862075e-18, -0.031490512634546 -0.0035 -0.003101544781813, -0.031034872658861 -0.0035 -0.0061732199919003, -0.030280349894084 -0.0035 -0.0091854437188403, -0.029234210806903 -0.0035 -0.012109206601494, -0.027906530288607 -0.0035 -0.014916351205009, -0.026310094628371 -0.0035 -0.017579843192313, -0.024460278374302 -0.0035 -0.020074031679555, -0.022374896268141 -0.0035 -0.022374896268141, -0.020074031679555 -0.0035 -0.024460278374302, -0.017579843192313 -0.0035 -0.026310094628371, -0.014916351205009 -0.0035 -0.027906530288607, -0.012109206601494 -0.0035 -0.029234210806903, -0.0091854437188403 -0.0035 -0.030280349894084, -0.0061732199919003 -0.0035 -0.031034872658861, -0.003101544781813 -0.0035 -0.031490512634546, -5.8127030793112e-18 -0.0035 -0.031642881759096
+                2.1798713024822886e-18 -0.0356 0.0035, 0.0034894101957323636 -0.03542857626953021 0.0035, 0.006945215463774168 -0.034915955982355 0.0035, 0.010334134510258858 -0.034067075952066636 0.0035, 0.013623530192197197 -0.03289011135740181 0.0035, 0.016781723831005523 -0.031396397010801436 0.0035, 0.01977830029549784 -0.029600318197970606 0.0035, 0.022584400916225784 -0.027519172139713433 0.0035, 0.025173001410241095 -0.025173001410241088 0.0035, 0.027519172139713437 -0.02258440091622578 0.0035, 0.02960031819797061 -0.019778300295497837 0.0035, 0.031396397010801436 -0.01678172383100552 0.0035, 0.03289011135740181 -0.013623530192197196 0.0035, 0.034067075952066636 -0.010334134510258858 0.0035, 0.034915955982355 -0.006945215463774165 0.0035, 0.03542857626953021 -0.0034894101957323614 0.0035, 0.0356 0 0.0035, 0.03542857626953021 0.0034894101957323614 0.0035, 0.034915955982355 0.006945215463774165 0.0035, 0.034067075952066636 0.010334134510258858 0.0035, 0.03289011135740181 0.013623530192197196 0.0035, 0.031396397010801436 0.01678172383100552 0.0035, 0.029600318197970613 0.019778300295497833 0.0035, 0.02751917213971344 0.022584400916225777 0.0035, 0.025173001410241095 0.025173001410241088 0.0035, 0.02258440091622578 0.027519172139713437 0.0035, 0.019778300295497837 0.029600318197970613 0.0035, 0.016781723831005523 0.031396397010801436 0.0035, 0.013623530192197197 0.03289011135740181 0.0035, 0.010334134510258858 0.034067075952066636 0.0035, 0.0069452154637741756 0.034915955982355 0.0035, 0.0034894101957323636 0.03542857626953021 0.0035, 2.1798713024822886e-18 0.0356 0.0035, -0.0034894101957323592 0.03542857626953021 0.0035, -0.006945215463774171 0.034915955982355 0.0035, -0.010334134510258854 0.034067075952066636 0.0035, -0.013623530192197194 0.03289011135740181 0.0035, -0.016781723831005516 0.03139639701080144 0.0035, -0.01977830029549783 0.02960031819797062 0.0035, -0.02258440091622577 0.02751917213971344 0.0035, -0.025173001410241088 0.025173001410241095 0.0035, -0.027519172139713426 0.02258440091622579 0.0035, -0.029600318197970613 0.019778300295497837 0.0035, -0.031396397010801436 0.016781723831005523 0.0035, -0.0328901113574018 0.013623530192197215 0.0035, -0.034067075952066636 0.01033413451025886 0.0035, -0.034915955982355 0.006945215463774177 0.0035, -0.03542857626953021 0.00348941019573235 0.0035, -0.0356 4.359742604964577e-18 0.0035, -0.03542857626953021 -0.003489410195732341 0.0035, -0.034915955982355 -0.0069452154637741695 0.0035, -0.034067075952066636 -0.010334134510258853 0.0035, -0.0328901113574018 -0.013623530192197206 0.0035, -0.03139639701080144 -0.016781723831005516 0.0035, -0.02960031819797062 -0.01977830029549783 0.0035, -0.027519172139713433 -0.022584400916225787 0.0035, -0.0251730014102411 -0.025173001410241088 0.0035, -0.022584400916225794 -0.027519172139713426 0.0035, -0.019778300295497837 -0.02960031819797061 0.0035, -0.016781723831005523 -0.031396397010801436 0.0035, -0.013623530192197216 -0.0328901113574018 0.0035, -0.010334134510258861 -0.034067075952066636 0.0035, -0.006945215463774181 -0.034915955982355 0.0035, -0.003489410195732352 -0.03542857626953021 0.0035, -6.539613907446865e-18 -0.0356 0.0035, 1.937567693103746e-18 -0.03164288175909587 0.0035, 0.0031015447818129984 -0.03149051263454646 0.0035, 0.006173219991900285 -0.031034872658861106 0.0035, 0.009185443718840256 -0.030280349894083788 0.0035, 0.012109206601493498 -0.029234210806903412 0.0035, 0.014916351205008681 -0.027906530288607324 0.0035, 0.017579843192312615 -0.02631009462837072 0.0035, 0.02007403167955474 -0.024460278374302175 0.0035, 0.0223748962681408 -0.022374896268140796 0.0035, 0.024460278374302178 -0.020074031679554738 0.0035, 0.026310094628370723 -0.01757984319231261 0.0035, 0.027906530288607324 -0.01491635120500868 0.0035, 0.029234210806903412 -0.012109206601493496 0.0035, 0.030280349894083788 -0.009185443718840256 0.0035, 0.031034872658861106 -0.006173219991900283 0.0035, 0.03149051263454647 -0.0031015447818129966 0.0035, 0.03164288175909587 0 0.0035, 0.03149051263454647 0.0031015447818129966 0.0035, 0.031034872658861106 0.006173219991900283 0.0035, 0.030280349894083788 0.009185443718840256 0.0035, 0.029234210806903412 0.012109206601493496 0.0035, 0.027906530288607324 0.01491635120500868 0.0035, 0.026310094628370726 0.017579843192312608 0.0035, 0.02446027837430218 0.020074031679554735 0.0035, 0.0223748962681408 0.022374896268140796 0.0035, 0.020074031679554738 0.024460278374302178 0.0035, 0.01757984319231261 0.026310094628370726 0.0035, 0.014916351205008681 0.027906530288607324 0.0035, 0.012109206601493498 0.029234210806903412 0.0035, 0.009185443718840256 0.030280349894083788 0.0035, 0.0061732199919002926 0.031034872658861106 0.0035, 0.0031015447818129984 0.03149051263454646 0.0035, 1.937567693103746e-18 0.03164288175909587 0.0035, -0.003101544781812995 0.03149051263454647 0.0035, -0.006173219991900289 0.031034872658861106 0.0035, -0.009185443718840254 0.030280349894083788 0.0035, -0.012109206601493495 0.029234210806903412 0.0035, -0.014916351205008678 0.027906530288607328 0.0035, -0.017579843192312605 0.02631009462837073 0.0035, -0.02007403167955473 0.02446027837430218 0.0035, -0.022374896268140796 0.0223748962681408 0.0035, -0.024460278374302168 0.02007403167955475 0.0035, -0.026310094628370726 0.01757984319231261 0.0035, -0.027906530288607324 0.014916351205008681 0.0035, -0.029234210806903405 0.012109206601493512 0.0035, -0.030280349894083784 0.009185443718840258 0.0035, -0.031034872658861106 0.006173219991900294 0.0035, -0.03149051263454647 0.0031015447818129867 0.0035, -0.03164288175909587 3.875135386207492e-18 0.0035, -0.03149051263454647 -0.0031015447818129784 0.0035, -0.031034872658861106 -0.0061732199919002865 0.0035, -0.030280349894083788 -0.009185443718840251 0.0035, -0.02923421080690341 -0.012109206601493505 0.0035, -0.027906530288607328 -0.014916351205008676 0.0035, -0.02631009462837073 -0.017579843192312605 0.0035, -0.024460278374302175 -0.020074031679554745 0.0035, -0.022374896268140803 -0.022374896268140796 0.0035, -0.020074031679554752 -0.024460278374302168 0.0035, -0.01757984319231261 -0.026310094628370723 0.0035, -0.014916351205008683 -0.027906530288607324 0.0035, -0.012109206601493514 -0.029234210806903405 0.0035, -0.00918544371884026 -0.030280349894083784 0.0035, -0.006173219991900297 -0.031034872658861103 0.0035, -0.0031015447818129884 -0.03149051263454647 0.0035, -5.812703079311238e-18 -0.03164288175909587 0.0035, 2.1798713024822886e-18 -0.0356 -0.0035, 0.0034894101957323636 -0.03542857626953021 -0.0035, 0.006945215463774168 -0.034915955982355 -0.0035, 0.010334134510258858 -0.034067075952066636 -0.0035, 0.013623530192197197 -0.03289011135740181 -0.0035, 0.016781723831005523 -0.031396397010801436 -0.0035, 0.01977830029549784 -0.029600318197970606 -0.0035, 0.022584400916225784 -0.027519172139713433 -0.0035, 0.025173001410241095 -0.025173001410241088 -0.0035, 0.027519172139713437 -0.02258440091622578 -0.0035, 0.02960031819797061 -0.019778300295497837 -0.0035, 0.031396397010801436 -0.01678172383100552 -0.0035, 0.03289011135740181 -0.013623530192197196 -0.0035, 0.034067075952066636 -0.010334134510258858 -0.0035, 0.034915955982355 -0.006945215463774165 -0.0035, 0.03542857626953021 -0.0034894101957323614 -0.0035, 0.0356 0 -0.0035, 0.03542857626953021 0.0034894101957323614 -0.0035, 0.034915955982355 0.006945215463774165 -0.0035, 0.034067075952066636 0.010334134510258858 -0.0035, 0.03289011135740181 0.013623530192197196 -0.0035, 0.031396397010801436 0.01678172383100552 -0.0035, 0.029600318197970613 0.019778300295497833 -0.0035, 0.02751917213971344 0.022584400916225777 -0.0035, 0.025173001410241095 0.025173001410241088 -0.0035, 0.02258440091622578 0.027519172139713437 -0.0035, 0.019778300295497837 0.029600318197970613 -0.0035, 0.016781723831005523 0.031396397010801436 -0.0035, 0.013623530192197197 0.03289011135740181 -0.0035, 0.010334134510258858 0.034067075952066636 -0.0035, 0.0069452154637741756 0.034915955982355 -0.0035, 0.0034894101957323636 0.03542857626953021 -0.0035, 2.1798713024822886e-18 0.0356 -0.0035, -0.0034894101957323592 0.03542857626953021 -0.0035, -0.006945215463774171 0.034915955982355 -0.0035, -0.010334134510258854 0.034067075952066636 -0.0035, -0.013623530192197194 0.03289011135740181 -0.0035, -0.016781723831005516 0.03139639701080144 -0.0035, -0.01977830029549783 0.02960031819797062 -0.0035, -0.02258440091622577 0.02751917213971344 -0.0035, -0.025173001410241088 0.025173001410241095 -0.0035, -0.027519172139713426 0.02258440091622579 -0.0035, -0.029600318197970613 0.019778300295497837 -0.0035, -0.031396397010801436 0.016781723831005523 -0.0035, -0.0328901113574018 0.013623530192197215 -0.0035, -0.034067075952066636 0.01033413451025886 -0.0035, -0.034915955982355 0.006945215463774177 -0.0035, -0.03542857626953021 0.00348941019573235 -0.0035, -0.0356 4.359742604964577e-18 -0.0035, -0.03542857626953021 -0.003489410195732341 -0.0035, -0.034915955982355 -0.0069452154637741695 -0.0035, -0.034067075952066636 -0.010334134510258853 -0.0035, -0.0328901113574018 -0.013623530192197206 -0.0035, -0.03139639701080144 -0.016781723831005516 -0.0035, -0.02960031819797062 -0.01977830029549783 -0.0035, -0.027519172139713433 -0.022584400916225787 -0.0035, -0.0251730014102411 -0.025173001410241088 -0.0035, -0.022584400916225794 -0.027519172139713426 -0.0035, -0.019778300295497837 -0.02960031819797061 -0.0035, -0.016781723831005523 -0.031396397010801436 -0.0035, -0.013623530192197216 -0.0328901113574018 -0.0035, -0.010334134510258861 -0.034067075952066636 -0.0035, -0.006945215463774181 -0.034915955982355 -0.0035, -0.003489410195732352 -0.03542857626953021 -0.0035, -6.539613907446865e-18 -0.0356 -0.0035, 1.937567693103746e-18 -0.03164288175909587 -0.0035, 0.0031015447818129984 -0.03149051263454646 -0.0035, 0.006173219991900285 -0.031034872658861106 -0.0035, 0.009185443718840256 -0.030280349894083788 -0.0035, 0.012109206601493498 -0.029234210806903412 -0.0035, 0.014916351205008681 -0.027906530288607324 -0.0035, 0.017579843192312615 -0.02631009462837072 -0.0035, 0.02007403167955474 -0.024460278374302175 -0.0035, 0.0223748962681408 -0.022374896268140796 -0.0035, 0.024460278374302178 -0.020074031679554738 -0.0035, 0.026310094628370723 -0.01757984319231261 -0.0035, 0.027906530288607324 -0.01491635120500868 -0.0035, 0.029234210806903412 -0.012109206601493496 -0.0035, 0.030280349894083788 -0.009185443718840256 -0.0035, 0.031034872658861106 -0.006173219991900283 -0.0035, 0.03149051263454647 -0.0031015447818129966 -0.0035, 0.03164288175909587 0 -0.0035, 0.03149051263454647 0.0031015447818129966 -0.0035, 0.031034872658861106 0.006173219991900283 -0.0035, 0.030280349894083788 0.009185443718840256 -0.0035, 0.029234210806903412 0.012109206601493496 -0.0035, 0.027906530288607324 0.01491635120500868 -0.0035, 0.026310094628370726 0.017579843192312608 -0.0035, 0.02446027837430218 0.020074031679554735 -0.0035, 0.0223748962681408 0.022374896268140796 -0.0035, 0.020074031679554738 0.024460278374302178 -0.0035, 0.01757984319231261 0.026310094628370726 -0.0035, 0.014916351205008681 0.027906530288607324 -0.0035, 0.012109206601493498 0.029234210806903412 -0.0035, 0.009185443718840256 0.030280349894083788 -0.0035, 0.0061732199919002926 0.031034872658861106 -0.0035, 0.0031015447818129984 0.03149051263454646 -0.0035, 1.937567693103746e-18 0.03164288175909587 -0.0035, -0.003101544781812995 0.03149051263454647 -0.0035, -0.006173219991900289 0.031034872658861106 -0.0035, -0.009185443718840254 0.030280349894083788 -0.0035, -0.012109206601493495 0.029234210806903412 -0.0035, -0.014916351205008678 0.027906530288607328 -0.0035, -0.017579843192312605 0.02631009462837073 -0.0035, -0.02007403167955473 0.02446027837430218 -0.0035, -0.022374896268140796 0.0223748962681408 -0.0035, -0.024460278374302168 0.02007403167955475 -0.0035, -0.026310094628370726 0.01757984319231261 -0.0035, -0.027906530288607324 0.014916351205008681 -0.0035, -0.029234210806903405 0.012109206601493512 -0.0035, -0.030280349894083784 0.009185443718840258 -0.0035, -0.031034872658861106 0.006173219991900294 -0.0035, -0.03149051263454647 0.0031015447818129867 -0.0035, -0.03164288175909587 3.875135386207492e-18 -0.0035, -0.03149051263454647 -0.0031015447818129784 -0.0035, -0.031034872658861106 -0.0061732199919002865 -0.0035, -0.030280349894083788 -0.009185443718840251 -0.0035, -0.02923421080690341 -0.012109206601493505 -0.0035, -0.027906530288607328 -0.014916351205008676 -0.0035, -0.02631009462837073 -0.017579843192312605 -0.0035, -0.024460278374302175 -0.020074031679554745 -0.0035, -0.022374896268140803 -0.022374896268140796 -0.0035, -0.020074031679554752 -0.024460278374302168 -0.0035, -0.01757984319231261 -0.026310094628370723 -0.0035, -0.014916351205008683 -0.027906530288607324 -0.0035, -0.012109206601493514 -0.029234210806903405 -0.0035, -0.00918544371884026 -0.030280349894083784 -0.0035, -0.006173219991900297 -0.031034872658861103 -0.0035, -0.0031015447818129884 -0.03149051263454647 -0.0035, -5.812703079311238e-18 -0.03164288175909587 -0.0035
               ]
             }
             texCoord TextureCoordinate {
               point [
-                0.5 0, 0.54900857016478 0.0024076366639016, 0.59754516100806 0.0096073597983848, 0.64514233862723 0.021529832133896, 0.69134171618254 0.038060233744357, 0.735698368413 0.059039367825823, 0.7777851165098 0.084265193848727, 0.81719664208182 0.11349477331863, 0.85355339059327 0.14644660940673, 0.88650522668137 0.18280335791818, 0.91573480615127 0.2222148834902, 0.94096063217418 0.264301631587, 0.96193976625564 0.30865828381746, 0.9784701678661 0.35485766137277, 0.99039264020162 0.40245483899194, 0.9975923633361 0.45099142983522, 1 0.5, 0.9975923633361 0.54900857016478, 0.99039264020162 0.59754516100806, 0.9784701678661 0.64514233862723, 0.96193976625564 0.69134171618254, 0.94096063217418 0.735698368413, 0.91573480615127 0.7777851165098, 0.88650522668137 0.81719664208182, 0.85355339059327 0.85355339059327, 0.81719664208182 0.88650522668137, 0.7777851165098 0.91573480615127, 0.735698368413 0.94096063217418, 0.69134171618254 0.96193976625564, 0.64514233862723 0.9784701678661, 0.59754516100806 0.99039264020162, 0.54900857016478 0.9975923633361, 0.5 1, 0.45099142983522 0.9975923633361, 0.40245483899194 0.99039264020162, 0.35485766137277 0.9784701678661, 0.30865828381746 0.96193976625564, 0.264301631587 0.94096063217418, 0.2222148834902 0.91573480615127, 0.18280335791818 0.88650522668137, 0.14644660940673 0.85355339059327, 0.11349477331863 0.81719664208182, 0.084265193848727 0.7777851165098, 0.059039367825823 0.735698368413, 0.038060233744357 0.69134171618255, 0.021529832133896 0.64514233862723, 0.0096073597983848 0.59754516100806, 0.0024076366639015 0.54900857016478, 0 0.5, 0.0024076366639015 0.45099142983522, 0.0096073597983848 0.40245483899194, 0.021529832133896 0.35485766137277, 0.038060233744357 0.30865828381745, 0.059039367825822 0.264301631587, 0.084265193848727 0.2222148834902, 0.11349477331863 0.18280335791818, 0.14644660940673 0.14644660940673, 0.18280335791818 0.11349477331863, 0.2222148834902 0.084265193848727, 0.264301631587 0.059039367825823, 0.30865828381745 0.038060233744357, 0.35485766137277 0.021529832133896, 0.40245483899194 0.0096073597983848, 0.45099142983522 0.0024076366639015, 0.5 0, 0.5 0.055577503383485, 0.54356102221647 0.057717519177718, 0.58670252797613 0.064116957038468, 0.62900904099495 0.074714186880846, 0.67007312642547 0.089407151588435, 0.70949931467709 0.10805434987911, 0.74690791000439 0.13047619903974, 0.78193864718476 0.15645676440587, 0.81425416106939 0.18574583893061, 0.84354323559413 0.21806135281524, 0.86952380096026 0.25309208999561, 0.89194565012089 0.29050068532291, 0.91059284841156 0.32992687357453, 0.92528581311915 0.37099095900505, 0.93588304296153 0.41329747202387, 0.94228248082228 0.45643897778353, 0.94442249661652 0.5, 0.94228248082228 0.54356102221647, 0.93588304296153 0.58670252797613, 0.92528581311915 0.62900904099495, 0.91059284841156 0.67007312642547, 0.89194565012089 0.70949931467709, 0.86952380096026 0.74690791000439, 0.84354323559413 0.78193864718476, 0.81425416106939 0.81425416106939, 0.78193864718476 0.84354323559413, 0.74690791000439 0.86952380096026, 0.70949931467709 0.89194565012089, 0.67007312642547 0.91059284841156, 0.62900904099495 0.92528581311915, 0.58670252797613 0.93588304296153, 0.54356102221647 0.94228248082228, 0.5 0.94442249661652, 0.45643897778353 0.94228248082228, 0.41329747202387 0.93588304296153, 0.37099095900505 0.92528581311915, 0.32992687357453 0.91059284841156, 0.29050068532291 0.89194565012089, 0.25309208999561 0.86952380096026, 0.21806135281524 0.84354323559413, 0.18574583893061 0.81425416106939, 0.15645676440587 0.78193864718476, 0.13047619903974 0.74690791000439, 0.10805434987911 0.70949931467709, 0.089407151588435 0.67007312642547, 0.074714186880846 0.62900904099495, 0.064116957038468 0.58670252797613, 0.057717519177718 0.54356102221647, 0.055577503383485 0.5, 0.057717519177718 0.45643897778353, 0.064116957038468 0.41329747202387, 0.074714186880846 0.37099095900505, 0.089407151588435 0.32992687357453, 0.10805434987911 0.29050068532291, 0.13047619903974 0.25309208999561, 0.15645676440587 0.21806135281524, 0.18574583893061 0.18574583893061, 0.21806135281524 0.15645676440587, 0.25309208999561 0.13047619903974, 0.29050068532291 0.10805434987911, 0.32992687357453 0.089407151588435, 0.37099095900505 0.074714186880846, 0.41329747202387 0.064116957038468, 0.45643897778353 0.057717519177718, 0.5 0.055577503383485, 0.5 0, 0.54900857016478 -0.0024076366639016, 0.59754516100806 -0.0096073597983848, 0.64514233862723 -0.021529832133896, 0.69134171618254 -0.038060233744357, 0.735698368413 -0.059039367825823, 0.7777851165098 -0.084265193848727, 0.81719664208182 -0.11349477331863, 0.85355339059327 -0.14644660940673, 0.88650522668137 -0.18280335791818, 0.91573480615127 -0.2222148834902, 0.94096063217418 -0.264301631587, 0.96193976625564 -0.30865828381746, 0.9784701678661 -0.35485766137277, 0.99039264020162 -0.40245483899194, 0.9975923633361 -0.45099142983522, 1 -0.5, 0.9975923633361 -0.54900857016478, 0.99039264020162 -0.59754516100806, 0.9784701678661 -0.64514233862723, 0.96193976625564 -0.69134171618254, 0.94096063217418 -0.735698368413, 0.91573480615127 -0.7777851165098, 0.88650522668137 -0.81719664208182, 0.85355339059327 -0.85355339059327, 0.81719664208182 -0.88650522668137, 0.7777851165098 -0.91573480615127, 0.735698368413 -0.94096063217418, 0.69134171618254 -0.96193976625564, 0.64514233862723 -0.9784701678661, 0.59754516100806 -0.99039264020162, 0.54900857016478 -0.9975923633361, 0.5 -1, 0.45099142983522 -0.9975923633361, 0.40245483899194 -0.99039264020162, 0.35485766137277 -0.9784701678661, 0.30865828381746 -0.96193976625564, 0.264301631587 -0.94096063217418, 0.2222148834902 -0.91573480615127, 0.18280335791818 -0.88650522668137, 0.14644660940673 -0.85355339059327, 0.11349477331863 -0.81719664208182, 0.084265193848727 -0.7777851165098, 0.059039367825823 -0.735698368413, 0.038060233744357 -0.69134171618255, 0.021529832133896 -0.64514233862723, 0.0096073597983848 -0.59754516100806, 0.0024076366639015 -0.54900857016478, 0 -0.5, 0.0024076366639015 -0.45099142983522, 0.0096073597983848 -0.40245483899194, 0.021529832133896 -0.35485766137277, 0.038060233744357 -0.30865828381745, 0.059039367825822 -0.264301631587, 0.084265193848727 -0.2222148834902, 0.11349477331863 -0.18280335791818, 0.14644660940673 -0.14644660940673, 0.18280335791818 -0.11349477331863, 0.2222148834902 -0.084265193848727, 0.264301631587 -0.059039367825823, 0.30865828381745 -0.038060233744357, 0.35485766137277 -0.021529832133896, 0.40245483899194 -0.0096073597983848, 0.45099142983522 -0.0024076366639015, 0.5 0, 0.5 -0.055577503383485, 0.54356102221647 -0.057717519177718, 0.58670252797613 -0.064116957038468, 0.62900904099495 -0.074714186880846, 0.67007312642547 -0.089407151588435, 0.70949931467709 -0.10805434987911, 0.74690791000439 -0.13047619903974, 0.78193864718476 -0.15645676440587, 0.81425416106939 -0.18574583893061, 0.84354323559413 -0.21806135281524, 0.86952380096026 -0.25309208999561, 0.89194565012089 -0.29050068532291, 0.91059284841156 -0.32992687357453, 0.92528581311915 -0.37099095900505, 0.93588304296153 -0.41329747202387, 0.94228248082228 -0.45643897778353, 0.94442249661652 -0.5, 0.94228248082228 -0.54356102221647, 0.93588304296153 -0.58670252797613, 0.92528581311915 -0.62900904099495, 0.91059284841156 -0.67007312642547, 0.89194565012089 -0.70949931467709, 0.86952380096026 -0.74690791000439, 0.84354323559413 -0.78193864718476, 0.81425416106939 -0.81425416106939, 0.78193864718476 -0.84354323559413, 0.74690791000439 -0.86952380096026, 0.70949931467709 -0.89194565012089, 0.67007312642547 -0.91059284841156, 0.62900904099495 -0.92528581311915, 0.58670252797613 -0.93588304296153, 0.54356102221647 -0.94228248082228, 0.5 -0.94442249661652, 0.45643897778353 -0.94228248082228, 0.41329747202387 -0.93588304296153, 0.37099095900505 -0.92528581311915, 0.32992687357453 -0.91059284841156, 0.29050068532291 -0.89194565012089, 0.25309208999561 -0.86952380096026, 0.21806135281524 -0.84354323559413, 0.18574583893061 -0.81425416106939, 0.15645676440587 -0.78193864718476, 0.13047619903974 -0.74690791000439, 0.10805434987911 -0.70949931467709, 0.089407151588435 -0.67007312642547, 0.074714186880846 -0.62900904099495, 0.064116957038468 -0.58670252797613, 0.057717519177718 -0.54356102221647, 0.055577503383485 -0.5, 0.057717519177718 -0.45643897778353, 0.064116957038468 -0.41329747202387, 0.074714186880846 -0.37099095900505, 0.089407151588435 -0.32992687357453, 0.10805434987911 -0.29050068532291, 0.13047619903974 -0.25309208999561, 0.15645676440587 -0.21806135281524, 0.18574583893061 -0.18574583893061, 0.21806135281524 -0.15645676440587, 0.25309208999561 -0.13047619903974, 0.29050068532291 -0.10805434987911, 0.32992687357453 -0.089407151588435, 0.37099095900505 -0.074714186880846, 0.41329747202387 -0.064116957038468, 0.45643897778353 -0.057717519177718, 0.5 -0.055577503383485, 1 1, 0.984375 1, 0.96875 1, 0.953125 1, 0.9375 1, 0.921875 1, 0.90625 1, 0.890625 1, 0.875 1, 0.859375 1, 0.84375 1, 0.828125 1, 0.8125 1, 0.796875 1, 0.78125 1, 0.765625 1, 0.75 1, 0.734375 1, 0.71875 1, 0.703125 1, 0.6875 1, 0.671875 1, 0.65625 1, 0.640625 1, 0.625 1, 0.609375 1, 0.59375 1, 0.578125 1, 0.5625 1, 0.546875 1, 0.53125 1, 0.515625 1, 0.5 1, 0.484375 1, 0.46875 1, 0.453125 1, 0.4375 1, 0.421875 1, 0.40625 1, 0.390625 1, 0.375 1, 0.359375 1, 0.34375 1, 0.328125 1, 0.3125 1, 0.296875 1, 0.28125 1, 0.265625 1, 0.25 1, 0.234375 1, 0.21875 1, 0.203125 1, 0.1875 1, 0.171875 1, 0.15625 1, 0.140625 1, 0.125 1, 0.109375 1, 0.09375 1, 0.078125 1, 0.0625 1, 0.046875 1, 0.03125 1, 0.015625 1, 0 1, 1 0, 0.984375 0, 0.96875 0, 0.953125 0, 0.9375 0, 0.921875 0, 0.90625 0, 0.890625 0, 0.875 0, 0.859375 0, 0.84375 0, 0.828125 0, 0.8125 0, 0.796875 0, 0.78125 0, 0.765625 0, 0.75 0, 0.734375 0, 0.71875 0, 0.703125 0, 0.6875 0, 0.671875 0, 0.65625 0, 0.640625 0, 0.625 0, 0.609375 0, 0.59375 0, 0.578125 0, 0.5625 0, 0.546875 0, 0.53125 0, 0.515625 0, 0.5 0, 0.484375 0, 0.46875 0, 0.453125 0, 0.4375 0, 0.421875 0, 0.40625 0, 0.390625 0, 0.375 0, 0.359375 0, 0.34375 0, 0.328125 0, 0.3125 0, 0.296875 0, 0.28125 0, 0.265625 0, 0.25 0, 0.234375 0, 0.21875 0, 0.203125 0, 0.1875 0, 0.171875 0, 0.15625 0, 0.140625 0, 0.125 0, 0.109375 0, 0.09375 0, 0.078125 0, 0.0625 0, 0.046875 0, 0.03125 0, 0.015625 0, 0 0
+                0.5 0, 0.5490085701647804 -0.002407636663901591, 0.5975451610080642 -0.009607359798384785, 0.6451423386272311 -0.021529832133895532, 0.6913417161825449 -0.03806023374435663, 0.735698368412999 -0.05903936782582253, 0.7777851165098011 -0.08426519384872744, 0.8171966420818229 -0.11349477331863156, 0.8535533905932737 -0.14644660940672627, 0.8865052266813684 -0.18280335791817726, 0.9157348061512727 -0.2222148834901989, 0.9409606321741775 -0.26430163158700115, 0.9619397662556434 -0.3086582838174551, 0.9784701678661045 -0.35485766137276886, 0.9903926402016152 -0.4024548389919359, 0.9975923633360985 -0.45099142983521967, 1 -0.5, 0.9975923633360985 -0.5490085701647803, 0.9903926402016152 -0.5975451610080641, 0.9784701678661045 -0.6451423386272311, 0.9619397662556434 -0.6913417161825449, 0.9409606321741775 -0.7356983684129988, 0.9157348061512727 -0.7777851165098011, 0.8865052266813686 -0.8171966420818226, 0.8535533905932737 -0.8535533905932737, 0.8171966420818227 -0.8865052266813684, 0.7777851165098011 -0.9157348061512727, 0.735698368412999 -0.9409606321741775, 0.6913417161825449 -0.9619397662556434, 0.6451423386272311 -0.9784701678661045, 0.5975451610080642 -0.9903926402016152, 0.5490085701647804 -0.9975923633360984, 0.5 -1, 0.45099142983521967 -0.9975923633360985, 0.4024548389919358 -0.9903926402016152, 0.35485766137276886 -0.9784701678661045, 0.30865828381745514 -0.9619397662556434, 0.26430163158700115 -0.9409606321741775, 0.22221488349019902 -0.9157348061512727, 0.18280335791817737 -0.8865052266813686, 0.14644660940672627 -0.8535533905932737, 0.11349477331863167 -0.8171966420818229, 0.08426519384872733 -0.7777851165098011, 0.05903936782582253 -0.735698368412999, 0.03806023374435674 -0.6913417161825451, 0.021529832133895588 -0.6451423386272311, 0.009607359798384785 -0.5975451610080643, 0.0024076366639015356 -0.5490085701647802, 0 -0.5000000000000001, 0.0024076366639015356 -0.45099142983521995, 0.009607359798384785 -0.4024548389919358, 0.021529832133895532 -0.3548576613727689, 0.038060233744356686 -0.30865828381745497, 0.059039367825822475 -0.26430163158700115, 0.08426519384872727 -0.22221488349019902, 0.11349477331863156 -0.18280335791817715, 0.14644660940672616 -0.14644660940672627, 0.18280335791817703 -0.11349477331863167, 0.2222148834901989 -0.08426519384872738, 0.26430163158700104 -0.05903936782582253, 0.30865828381745486 -0.03806023374435674, 0.3548576613727688 -0.021529832133895588, 0.4024548389919357 -0.00960735979838484, 0.4509914298352198 -0.0024076366639015356, 0.4999999999999999 0, 0.5 -0.055577503383484994, 0.5435610222164747 -0.057717519177718224, 0.5867025279761277 -0.06411695703846759, 0.6290090409949474 -0.07471418688084563, 0.6700731264254705 -0.08940715158843521, 0.7094993146770883 -0.10805434987911061, 0.7469079100043907 -0.13047619903973712, 0.7819386471847576 -0.15645676440586836, 0.8142541610693932 -0.1857458389306068, 0.8435432355941317 -0.21806135281524242, 0.8695238009602629 -0.2530920899956094, 0.8919456501208893 -0.2905006853229118, 0.9105928484115648 -0.32992687357452954, 0.9252858131191544 -0.3709909590050526, 0.9358830429615324 -0.4132974720238724, 0.9422824808222818 -0.4564389777835253, 0.944422496616515 -0.5, 0.9422824808222818 -0.5435610222164746, 0.9358830429615324 -0.5867025279761275, 0.9252858131191544 -0.6290090409949474, 0.9105928484115648 -0.6700731264254705, 0.8919456501208893 -0.7094993146770883, 0.869523800960263 -0.7469079100043905, 0.8435432355941317 -0.7819386471847576, 0.8142541610693932 -0.8142541610693932, 0.7819386471847576 -0.8435432355941317, 0.7469079100043906 -0.869523800960263, 0.7094993146770883 -0.8919456501208893, 0.6700731264254705 -0.9105928484115648, 0.6290090409949474 -0.9252858131191544, 0.5867025279761278 -0.9358830429615324, 0.5435610222164747 -0.9422824808222818, 0.5 -0.944422496616515, 0.4564389777835254 -0.9422824808222818, 0.41329747202387235 -0.9358830429615324, 0.37099095900505263 -0.9252858131191544, 0.32992687357452954 -0.9105928484115648, 0.29050068532291184 -0.8919456501208894, 0.2530920899956095 -0.869523800960263, 0.21806135281524253 -0.8435432355941317, 0.1857458389306068 -0.8142541610693932, 0.15645676440586842 -0.7819386471847578, 0.130476199039737 -0.7469079100043906, 0.10805434987911061 -0.7094993146770883, 0.08940715158843532 -0.6700731264254707, 0.07471418688084569 -0.6290090409949475, 0.06411695703846759 -0.5867025279761278, 0.05771751917771817 -0.5435610222164745, 0.055577503383484994 -0.5, 0.05771751917771817 -0.4564389777835256, 0.06411695703846759 -0.41329747202387235, 0.07471418688084563 -0.37099095900505263, 0.08940715158843526 -0.32992687357452943, 0.10805434987911056 -0.29050068532291184, 0.13047619903973695 -0.2530920899956095, 0.15645676440586836 -0.2180613528152423, 0.1857458389306067 -0.1857458389306068, 0.21806135281524225 -0.15645676440586842, 0.2530920899956094 -0.13047619903973706, 0.29050068532291173 -0.10805434987911061, 0.3299268735745293 -0.08940715158843532, 0.3709909590050525 -0.07471418688084569, 0.41329747202387224 -0.06411695703846765, 0.45643897778352543 -0.05771751917771817, 0.49999999999999994 -0.055577503383484994, 0.5 0, 0.5490085701647804 0.002407636663901591, 0.5975451610080642 0.009607359798384785, 0.6451423386272311 0.021529832133895532, 0.6913417161825449 0.03806023374435663, 0.735698368412999 0.05903936782582253, 0.7777851165098011 0.08426519384872744, 0.8171966420818229 0.11349477331863156, 0.8535533905932737 0.14644660940672627, 0.8865052266813684 0.18280335791817726, 0.9157348061512727 0.2222148834901989, 0.9409606321741775 0.26430163158700115, 0.9619397662556434 0.3086582838174551, 0.9784701678661045 0.35485766137276886, 0.9903926402016152 0.4024548389919359, 0.9975923633360985 0.45099142983521967, 1 0.5, 0.9975923633360985 0.5490085701647803, 0.9903926402016152 0.5975451610080641, 0.9784701678661045 0.6451423386272311, 0.9619397662556434 0.6913417161825449, 0.9409606321741775 0.7356983684129988, 0.9157348061512727 0.7777851165098011, 0.8865052266813686 0.8171966420818226, 0.8535533905932737 0.8535533905932737, 0.8171966420818227 0.8865052266813684, 0.7777851165098011 0.9157348061512727, 0.735698368412999 0.9409606321741775, 0.6913417161825449 0.9619397662556434, 0.6451423386272311 0.9784701678661045, 0.5975451610080642 0.9903926402016152, 0.5490085701647804 0.9975923633360984, 0.5 1, 0.45099142983521967 0.9975923633360985, 0.4024548389919358 0.9903926402016152, 0.35485766137276886 0.9784701678661045, 0.30865828381745514 0.9619397662556434, 0.26430163158700115 0.9409606321741775, 0.22221488349019902 0.9157348061512727, 0.18280335791817737 0.8865052266813686, 0.14644660940672627 0.8535533905932737, 0.11349477331863167 0.8171966420818229, 0.08426519384872733 0.7777851165098011, 0.05903936782582253 0.735698368412999, 0.03806023374435674 0.6913417161825451, 0.021529832133895588 0.6451423386272311, 0.009607359798384785 0.5975451610080643, 0.0024076366639015356 0.5490085701647802, 0 0.5000000000000001, 0.0024076366639015356 0.45099142983521995, 0.009607359798384785 0.4024548389919358, 0.021529832133895532 0.3548576613727689, 0.038060233744356686 0.30865828381745497, 0.059039367825822475 0.26430163158700115, 0.08426519384872727 0.22221488349019902, 0.11349477331863156 0.18280335791817715, 0.14644660940672616 0.14644660940672627, 0.18280335791817703 0.11349477331863167, 0.2222148834901989 0.08426519384872738, 0.26430163158700104 0.05903936782582253, 0.30865828381745486 0.03806023374435674, 0.3548576613727688 0.021529832133895588, 0.4024548389919357 0.00960735979838484, 0.4509914298352198 0.0024076366639015356, 0.4999999999999999 0, 0.5 0.055577503383484994, 0.5435610222164747 0.057717519177718224, 0.5867025279761277 0.06411695703846759, 0.6290090409949474 0.07471418688084563, 0.6700731264254705 0.08940715158843521, 0.7094993146770883 0.10805434987911061, 0.7469079100043907 0.13047619903973712, 0.7819386471847576 0.15645676440586836, 0.8142541610693932 0.1857458389306068, 0.8435432355941317 0.21806135281524242, 0.8695238009602629 0.2530920899956094, 0.8919456501208893 0.2905006853229118, 0.9105928484115648 0.32992687357452954, 0.9252858131191544 0.3709909590050526, 0.9358830429615324 0.4132974720238724, 0.9422824808222818 0.4564389777835253, 0.944422496616515 0.5, 0.9422824808222818 0.5435610222164746, 0.9358830429615324 0.5867025279761275, 0.9252858131191544 0.6290090409949474, 0.9105928484115648 0.6700731264254705, 0.8919456501208893 0.7094993146770883, 0.869523800960263 0.7469079100043905, 0.8435432355941317 0.7819386471847576, 0.8142541610693932 0.8142541610693932, 0.7819386471847576 0.8435432355941317, 0.7469079100043906 0.869523800960263, 0.7094993146770883 0.8919456501208893, 0.6700731264254705 0.9105928484115648, 0.6290090409949474 0.9252858131191544, 0.5867025279761278 0.9358830429615324, 0.5435610222164747 0.9422824808222818, 0.5 0.944422496616515, 0.4564389777835254 0.9422824808222818, 0.41329747202387235 0.9358830429615324, 0.37099095900505263 0.9252858131191544, 0.32992687357452954 0.9105928484115648, 0.29050068532291184 0.8919456501208894, 0.2530920899956095 0.869523800960263, 0.21806135281524253 0.8435432355941317, 0.1857458389306068 0.8142541610693932, 0.15645676440586842 0.7819386471847578, 0.130476199039737 0.7469079100043906, 0.10805434987911061 0.7094993146770883, 0.08940715158843532 0.6700731264254707, 0.07471418688084569 0.6290090409949475, 0.06411695703846759 0.5867025279761278, 0.05771751917771817 0.5435610222164745, 0.055577503383484994 0.5, 0.05771751917771817 0.4564389777835256, 0.06411695703846759 0.41329747202387235, 0.07471418688084563 0.37099095900505263, 0.08940715158843526 0.32992687357452943, 0.10805434987911056 0.29050068532291184, 0.13047619903973695 0.2530920899956095, 0.15645676440586836 0.2180613528152423, 0.1857458389306067 0.1857458389306068, 0.21806135281524225 0.15645676440586842, 0.2530920899956094 0.13047619903973706, 0.29050068532291173 0.10805434987911061, 0.3299268735745293 0.08940715158843532, 0.3709909590050525 0.07471418688084569, 0.41329747202387224 0.06411695703846765, 0.45643897778352543 0.05771751917771817, 0.49999999999999994 0.055577503383484994, -0.5 1, -0.484375 1, -0.46875 1, -0.453125 1, -0.4375 1, -0.421875 1, -0.40625 1, -0.390625 1, -0.375 1, -0.359375 1, -0.34375 1, -0.328125 1, -0.3125 1, -0.296875 1, -0.28125 1, -0.265625 1, -0.25 1, -0.234375 1, -0.21875 1, -0.203125 1, -0.1875 1, -0.171875 1, -0.15625 1, -0.140625 1, -0.125 1, -0.109375 1, -0.09375 1, -0.078125 1, -0.0625 1, -0.046875 1, -0.03125 1, -0.015625 1, 0 1, 0.015625 1, 0.03125 1, 0.046875 1, 0.0625 1, 0.078125 1, 0.09375 1, 0.109375 1, 0.125 1, 0.140625 1, 0.15625 1, 0.171875 1, 0.1875 1, 0.203125 1, 0.21875 1, 0.234375 1, 0.25 1, 0.265625 1, 0.28125 1, 0.296875 1, 0.3125 1, 0.328125 1, 0.34375 1, 0.359375 1, 0.375 1, 0.390625 1, 0.40625 1, 0.421875 1, 0.4375 1, 0.453125 1, 0.46875 1, 0.484375 1, 0.5 1, -0.5 0, -0.484375 0, -0.46875 0, -0.453125 0, -0.4375 0, -0.421875 0, -0.40625 0, -0.390625 0, -0.375 0, -0.359375 0, -0.34375 0, -0.328125 0, -0.3125 0, -0.296875 0, -0.28125 0, -0.265625 0, -0.25 0, -0.234375 0, -0.21875 0, -0.203125 0, -0.1875 0, -0.171875 0, -0.15625 0, -0.140625 0, -0.125 0, -0.109375 0, -0.09375 0, -0.078125 0, -0.0625 0, -0.046875 0, -0.03125 0, -0.015625 0, 0 0, 0.015625 0, 0.03125 0, 0.046875 0, 0.0625 0, 0.078125 0, 0.09375 0, 0.109375 0, 0.125 0, 0.140625 0, 0.15625 0, 0.171875 0, 0.1875 0, 0.203125 0, 0.21875 0, 0.234375 0, 0.25 0, 0.265625 0, 0.28125 0, 0.296875 0, 0.3125 0, 0.328125 0, 0.34375 0, 0.359375 0, 0.375 0, 0.390625 0, 0.40625 0, 0.421875 0, 0.4375 0, 0.453125 0, 0.46875 0, 0.484375 0, 0.5 0
               ]
             }
             coordIndex [
-              0, 65, 66, 1, -1, 1, 66, 67, 2, -1, 2, 67, 68, 3, -1, 3, 68, 69, 4, -1, 4, 69, 70, 5, -1, 5, 70, 71, 6, -1, 6, 71, 72, 7, -1, 7, 72, 73, 8, -1, 8, 73, 74, 9, -1, 9, 74, 75, 10, -1, 10, 75, 76, 11, -1, 11, 76, 77, 12, -1, 12, 77, 78, 13, -1, 13, 78, 79, 14, -1, 14, 79, 80, 15, -1, 15, 80, 81, 16, -1, 16, 81, 82, 17, -1, 17, 82, 83, 18, -1, 18, 83, 84, 19, -1, 19, 84, 85, 20, -1, 20, 85, 86, 21, -1, 21, 86, 87, 22, -1, 22, 87, 88, 23, -1, 23, 88, 89, 24, -1, 24, 89, 90, 25, -1, 25, 90, 91, 26, -1, 26, 91, 92, 27, -1, 27, 92, 93, 28, -1, 28, 93, 94, 29, -1, 29, 94, 95, 30, -1, 30, 95, 96, 31, -1, 31, 96, 97, 32, -1, 32, 97, 98, 33, -1, 33, 98, 99, 34, -1, 34, 99, 100, 35, -1, 35, 100, 101, 36, -1, 36, 101, 102, 37, -1, 37, 102, 103, 38, -1, 38, 103, 104, 39, -1, 39, 104, 105, 40, -1, 40, 105, 106, 41, -1, 41, 106, 107, 42, -1, 42, 107, 108, 43, -1, 43, 108, 109, 44, -1, 44, 109, 110, 45, -1, 45, 110, 111, 46, -1, 46, 111, 112, 47, -1, 47, 112, 113, 48, -1, 48, 113, 114, 49, -1, 49, 114, 115, 50, -1, 50, 115, 116, 51, -1, 51, 116, 117, 52, -1, 52, 117, 118, 53, -1, 53, 118, 119, 54, -1, 54, 119, 120, 55, -1, 55, 120, 121, 56, -1, 56, 121, 122, 57, -1, 57, 122, 123, 58, -1, 58, 123, 124, 59, -1, 59, 124, 125, 60, -1, 60, 125, 126, 61, -1, 61, 126, 127, 62, -1, 62, 127, 128, 63, -1, 63, 128, 129, 64, -1, 130, 131, 196, 195, -1, 131, 132, 197, 196, -1, 132, 133, 198, 197, -1, 133, 134, 199, 198, -1, 134, 135, 200, 199, -1, 135, 136, 201, 200, -1, 136, 137, 202, 201, -1, 137, 138, 203, 202, -1, 138, 139, 204, 203, -1, 139, 140, 205, 204, -1, 140, 141, 206, 205, -1, 141, 142, 207, 206, -1, 142, 143, 208, 207, -1, 143, 144, 209, 208, -1, 144, 145, 210, 209, -1, 145, 146, 211, 210, -1, 146, 147, 212, 211, -1, 147, 148, 213, 212, -1, 148, 149, 214, 213, -1, 149, 150, 215, 214, -1, 150, 151, 216, 215, -1, 151, 152, 217, 216, -1, 152, 153, 218, 217, -1, 153, 154, 219, 218, -1, 154, 155, 220, 219, -1, 155, 156, 221, 220, -1, 156, 157, 222, 221, -1, 157, 158, 223, 222, -1, 158, 159, 224, 223, -1, 159, 160, 225, 224, -1, 160, 161, 226, 225, -1, 161, 162, 227, 226, -1, 162, 163, 228, 227, -1, 163, 164, 229, 228, -1, 164, 165, 230, 229, -1, 165, 166, 231, 230, -1, 166, 167, 232, 231, -1, 167, 168, 233, 232, -1, 168, 169, 234, 233, -1, 169, 170, 235, 234, -1, 170, 171, 236, 235, -1, 171, 172, 237, 236, -1, 172, 173, 238, 237, -1, 173, 174, 239, 238, -1, 174, 175, 240, 239, -1, 175, 176, 241, 240, -1, 176, 177, 242, 241, -1, 177, 178, 243, 242, -1, 178, 179, 244, 243, -1, 179, 180, 245, 244, -1, 180, 181, 246, 245, -1, 181, 182, 247, 246, -1, 182, 183, 248, 247, -1, 183, 184, 249, 248, -1, 184, 185, 250, 249, -1, 185, 186, 251, 250, -1, 186, 187, 252, 251, -1, 187, 188, 253, 252, -1, 188, 189, 254, 253, -1, 189, 190, 255, 254, -1, 190, 191, 256, 255, -1, 191, 192, 257, 256, -1, 192, 193, 258, 257, -1, 193, 194, 259, 258, -1, 65, 195, 196, 66, -1, 66, 196, 197, 67, -1, 67, 197, 198, 68, -1, 68, 198, 199, 69, -1, 69, 199, 200, 70, -1, 70, 200, 201, 71, -1, 71, 201, 202, 72, -1, 72, 202, 203, 73, -1, 73, 203, 204, 74, -1, 74, 204, 205, 75, -1, 75, 205, 206, 76, -1, 76, 206, 207, 77, -1, 77, 207, 208, 78, -1, 78, 208, 209, 79, -1, 79, 209, 210, 80, -1, 80, 210, 211, 81, -1, 81, 211, 212, 82, -1, 82, 212, 213, 83, -1, 83, 213, 214, 84, -1, 84, 214, 215, 85, -1, 85, 215, 216, 86, -1, 86, 216, 217, 87, -1, 87, 217, 218, 88, -1, 88, 218, 219, 89, -1, 89, 219, 220, 90, -1, 90, 220, 221, 91, -1, 91, 221, 222, 92, -1, 92, 222, 223, 93, -1, 93, 223, 224, 94, -1, 94, 224, 225, 95, -1, 95, 225, 226, 96, -1, 96, 226, 227, 97, -1, 97, 227, 228, 98, -1, 98, 228, 229, 99, -1, 99, 229, 230, 100, -1, 100, 230, 231, 101, -1, 101, 231, 232, 102, -1, 102, 232, 233, 103, -1, 103, 233, 234, 104, -1, 104, 234, 235, 105, -1, 105, 235, 236, 106, -1, 106, 236, 237, 107, -1, 107, 237, 238, 108, -1, 108, 238, 239, 109, -1, 109, 239, 240, 110, -1, 110, 240, 241, 111, -1, 111, 241, 242, 112, -1, 112, 242, 243, 113, -1, 113, 243, 244, 114, -1, 114, 244, 245, 115, -1, 115, 245, 246, 116, -1, 116, 246, 247, 117, -1, 117, 247, 248, 118, -1, 118, 248, 249, 119, -1, 119, 249, 250, 120, -1, 120, 250, 251, 121, -1, 121, 251, 252, 122, -1, 122, 252, 253, 123, -1, 123, 253, 254, 124, -1, 124, 254, 255, 125, -1, 125, 255, 256, 126, -1, 126, 256, 257, 127, -1, 127, 257, 258, 128, -1, 128, 258, 259, 129, -1, 0, 1, 131, 130, -1, 1, 2, 132, 131, -1, 2, 3, 133, 132, -1, 3, 4, 134, 133, -1, 4, 5, 135, 134, -1, 5, 6, 136, 135, -1, 6, 7, 137, 136, -1, 7, 8, 138, 137, -1, 8, 9, 139, 138, -1, 9, 10, 140, 139, -1, 10, 11, 141, 140, -1, 11, 12, 142, 141, -1, 12, 13, 143, 142, -1, 13, 14, 144, 143, -1, 14, 15, 145, 144, -1, 15, 16, 146, 145, -1, 16, 17, 147, 146, -1, 17, 18, 148, 147, -1, 18, 19, 149, 148, -1, 19, 20, 150, 149, -1, 20, 21, 151, 150, -1, 21, 22, 152, 151, -1, 22, 23, 153, 152, -1, 23, 24, 154, 153, -1, 24, 25, 155, 154, -1, 25, 26, 156, 155, -1, 26, 27, 157, 156, -1, 27, 28, 158, 157, -1, 28, 29, 159, 158, -1, 29, 30, 160, 159, -1, 30, 31, 161, 160, -1, 31, 32, 162, 161, -1, 32, 33, 163, 162, -1, 33, 34, 164, 163, -1, 34, 35, 165, 164, -1, 35, 36, 166, 165, -1, 36, 37, 167, 166, -1, 37, 38, 168, 167, -1, 38, 39, 169, 168, -1, 39, 40, 170, 169, -1, 40, 41, 171, 170, -1, 41, 42, 172, 171, -1, 42, 43, 173, 172, -1, 43, 44, 174, 173, -1, 44, 45, 175, 174, -1, 45, 46, 176, 175, -1, 46, 47, 177, 176, -1, 47, 48, 178, 177, -1, 48, 49, 179, 178, -1, 49, 50, 180, 179, -1, 50, 51, 181, 180, -1, 51, 52, 182, 181, -1, 52, 53, 183, 182, -1, 53, 54, 184, 183, -1, 54, 55, 185, 184, -1, 55, 56, 186, 185, -1, 56, 57, 187, 186, -1, 57, 58, 188, 187, -1, 58, 59, 189, 188, -1, 59, 60, 190, 189, -1, 60, 61, 191, 190, -1, 61, 62, 192, 191, -1, 62, 63, 193, 192, -1, 63, 64, 194, 193, -1
+              0, 1, 66, 65, -1, 1, 2, 67, 66, -1, 2, 3, 68, 67, -1, 3, 4, 69, 68, -1, 4, 5, 70, 69, -1, 5, 6, 71, 70, -1, 6, 7, 72, 71, -1, 7, 8, 73, 72, -1, 8, 9, 74, 73, -1, 9, 10, 75, 74, -1, 10, 11, 76, 75, -1, 11, 12, 77, 76, -1, 12, 13, 78, 77, -1, 13, 14, 79, 78, -1, 14, 15, 80, 79, -1, 15, 16, 81, 80, -1, 16, 17, 82, 81, -1, 17, 18, 83, 82, -1, 18, 19, 84, 83, -1, 19, 20, 85, 84, -1, 20, 21, 86, 85, -1, 21, 22, 87, 86, -1, 22, 23, 88, 87, -1, 23, 24, 89, 88, -1, 24, 25, 90, 89, -1, 25, 26, 91, 90, -1, 26, 27, 92, 91, -1, 27, 28, 93, 92, -1, 28, 29, 94, 93, -1, 29, 30, 95, 94, -1, 30, 31, 96, 95, -1, 31, 32, 97, 96, -1, 32, 33, 98, 97, -1, 33, 34, 99, 98, -1, 34, 35, 100, 99, -1, 35, 36, 101, 100, -1, 36, 37, 102, 101, -1, 37, 38, 103, 102, -1, 38, 39, 104, 103, -1, 39, 40, 105, 104, -1, 40, 41, 106, 105, -1, 41, 42, 107, 106, -1, 42, 43, 108, 107, -1, 43, 44, 109, 108, -1, 44, 45, 110, 109, -1, 45, 46, 111, 110, -1, 46, 47, 112, 111, -1, 47, 48, 113, 112, -1, 48, 49, 114, 113, -1, 49, 50, 115, 114, -1, 50, 51, 116, 115, -1, 51, 52, 117, 116, -1, 52, 53, 118, 117, -1, 53, 54, 119, 118, -1, 54, 55, 120, 119, -1, 55, 56, 121, 120, -1, 56, 57, 122, 121, -1, 57, 58, 123, 122, -1, 58, 59, 124, 123, -1, 59, 60, 125, 124, -1, 60, 61, 126, 125, -1, 61, 62, 127, 126, -1, 62, 63, 128, 127, -1, 63, 64, 129, 128, -1, 130, 195, 196, 131, -1, 131, 196, 197, 132, -1, 132, 197, 198, 133, -1, 133, 198, 199, 134, -1, 134, 199, 200, 135, -1, 135, 200, 201, 136, -1, 136, 201, 202, 137, -1, 137, 202, 203, 138, -1, 138, 203, 204, 139, -1, 139, 204, 205, 140, -1, 140, 205, 206, 141, -1, 141, 206, 207, 142, -1, 142, 207, 208, 143, -1, 143, 208, 209, 144, -1, 144, 209, 210, 145, -1, 145, 210, 211, 146, -1, 146, 211, 212, 147, -1, 147, 212, 213, 148, -1, 148, 213, 214, 149, -1, 149, 214, 215, 150, -1, 150, 215, 216, 151, -1, 151, 216, 217, 152, -1, 152, 217, 218, 153, -1, 153, 218, 219, 154, -1, 154, 219, 220, 155, -1, 155, 220, 221, 156, -1, 156, 221, 222, 157, -1, 157, 222, 223, 158, -1, 158, 223, 224, 159, -1, 159, 224, 225, 160, -1, 160, 225, 226, 161, -1, 161, 226, 227, 162, -1, 162, 227, 228, 163, -1, 163, 228, 229, 164, -1, 164, 229, 230, 165, -1, 165, 230, 231, 166, -1, 166, 231, 232, 167, -1, 167, 232, 233, 168, -1, 168, 233, 234, 169, -1, 169, 234, 235, 170, -1, 170, 235, 236, 171, -1, 171, 236, 237, 172, -1, 172, 237, 238, 173, -1, 173, 238, 239, 174, -1, 174, 239, 240, 175, -1, 175, 240, 241, 176, -1, 176, 241, 242, 177, -1, 177, 242, 243, 178, -1, 178, 243, 244, 179, -1, 179, 244, 245, 180, -1, 180, 245, 246, 181, -1, 181, 246, 247, 182, -1, 182, 247, 248, 183, -1, 183, 248, 249, 184, -1, 184, 249, 250, 185, -1, 185, 250, 251, 186, -1, 186, 251, 252, 187, -1, 187, 252, 253, 188, -1, 188, 253, 254, 189, -1, 189, 254, 255, 190, -1, 190, 255, 256, 191, -1, 191, 256, 257, 192, -1, 192, 257, 258, 193, -1, 193, 258, 259, 194, -1, 65, 66, 196, 195, -1, 66, 67, 197, 196, -1, 67, 68, 198, 197, -1, 68, 69, 199, 198, -1, 69, 70, 200, 199, -1, 70, 71, 201, 200, -1, 71, 72, 202, 201, -1, 72, 73, 203, 202, -1, 73, 74, 204, 203, -1, 74, 75, 205, 204, -1, 75, 76, 206, 205, -1, 76, 77, 207, 206, -1, 77, 78, 208, 207, -1, 78, 79, 209, 208, -1, 79, 80, 210, 209, -1, 80, 81, 211, 210, -1, 81, 82, 212, 211, -1, 82, 83, 213, 212, -1, 83, 84, 214, 213, -1, 84, 85, 215, 214, -1, 85, 86, 216, 215, -1, 86, 87, 217, 216, -1, 87, 88, 218, 217, -1, 88, 89, 219, 218, -1, 89, 90, 220, 219, -1, 90, 91, 221, 220, -1, 91, 92, 222, 221, -1, 92, 93, 223, 222, -1, 93, 94, 224, 223, -1, 94, 95, 225, 224, -1, 95, 96, 226, 225, -1, 96, 97, 227, 226, -1, 97, 98, 228, 227, -1, 98, 99, 229, 228, -1, 99, 100, 230, 229, -1, 100, 101, 231, 230, -1, 101, 102, 232, 231, -1, 102, 103, 233, 232, -1, 103, 104, 234, 233, -1, 104, 105, 235, 234, -1, 105, 106, 236, 235, -1, 106, 107, 237, 236, -1, 107, 108, 238, 237, -1, 108, 109, 239, 238, -1, 109, 110, 240, 239, -1, 110, 111, 241, 240, -1, 111, 112, 242, 241, -1, 112, 113, 243, 242, -1, 113, 114, 244, 243, -1, 114, 115, 245, 244, -1, 115, 116, 246, 245, -1, 116, 117, 247, 246, -1, 117, 118, 248, 247, -1, 118, 119, 249, 248, -1, 119, 120, 250, 249, -1, 120, 121, 251, 250, -1, 121, 122, 252, 251, -1, 122, 123, 253, 252, -1, 123, 124, 254, 253, -1, 124, 125, 255, 254, -1, 125, 126, 256, 255, -1, 126, 127, 257, 256, -1, 127, 128, 258, 257, -1, 128, 129, 259, 258, -1, 0, 130, 131, 1, -1, 1, 131, 132, 2, -1, 2, 132, 133, 3, -1, 3, 133, 134, 4, -1, 4, 134, 135, 5, -1, 5, 135, 136, 6, -1, 6, 136, 137, 7, -1, 7, 137, 138, 8, -1, 8, 138, 139, 9, -1, 9, 139, 140, 10, -1, 10, 140, 141, 11, -1, 11, 141, 142, 12, -1, 12, 142, 143, 13, -1, 13, 143, 144, 14, -1, 14, 144, 145, 15, -1, 15, 145, 146, 16, -1, 16, 146, 147, 17, -1, 17, 147, 148, 18, -1, 18, 148, 149, 19, -1, 19, 149, 150, 20, -1, 20, 150, 151, 21, -1, 21, 151, 152, 22, -1, 22, 152, 153, 23, -1, 23, 153, 154, 24, -1, 24, 154, 155, 25, -1, 25, 155, 156, 26, -1, 26, 156, 157, 27, -1, 27, 157, 158, 28, -1, 28, 158, 159, 29, -1, 29, 159, 160, 30, -1, 30, 160, 161, 31, -1, 31, 161, 162, 32, -1, 32, 162, 163, 33, -1, 33, 163, 164, 34, -1, 34, 164, 165, 35, -1, 35, 165, 166, 36, -1, 36, 166, 167, 37, -1, 37, 167, 168, 38, -1, 38, 168, 169, 39, -1, 39, 169, 170, 40, -1, 40, 170, 171, 41, -1, 41, 171, 172, 42, -1, 42, 172, 173, 43, -1, 43, 173, 174, 44, -1, 44, 174, 175, 45, -1, 45, 175, 176, 46, -1, 46, 176, 177, 47, -1, 47, 177, 178, 48, -1, 48, 178, 179, 49, -1, 49, 179, 180, 50, -1, 50, 180, 181, 51, -1, 51, 181, 182, 52, -1, 52, 182, 183, 53, -1, 53, 183, 184, 54, -1, 54, 184, 185, 55, -1, 55, 185, 186, 56, -1, 56, 186, 187, 57, -1, 57, 187, 188, 58, -1, 58, 188, 189, 59, -1, 59, 189, 190, 60, -1, 60, 190, 191, 61, -1, 61, 191, 192, 62, -1, 62, 192, 193, 63, -1, 63, 193, 194, 64, -1
             ]
             texCoordIndex [
-              130, 195, 196, 131, -1, 131, 196, 197, 132, -1, 132, 197, 198, 133, -1, 133, 198, 199, 134, -1, 134, 199, 200, 135, -1, 135, 200, 201, 136, -1, 136, 201, 202, 137, -1, 137, 202, 203, 138, -1, 138, 203, 204, 139, -1, 139, 204, 205, 140, -1, 140, 205, 206, 141, -1, 141, 206, 207, 142, -1, 142, 207, 208, 143, -1, 143, 208, 209, 144, -1, 144, 209, 210, 145, -1, 145, 210, 211, 146, -1, 146, 211, 212, 147, -1, 147, 212, 213, 148, -1, 148, 213, 214, 149, -1, 149, 214, 215, 150, -1, 150, 215, 216, 151, -1, 151, 216, 217, 152, -1, 152, 217, 218, 153, -1, 153, 218, 219, 154, -1, 154, 219, 220, 155, -1, 155, 220, 221, 156, -1, 156, 221, 222, 157, -1, 157, 222, 223, 158, -1, 158, 223, 224, 159, -1, 159, 224, 225, 160, -1, 160, 225, 226, 161, -1, 161, 226, 227, 162, -1, 162, 227, 228, 163, -1, 163, 228, 229, 164, -1, 164, 229, 230, 165, -1, 165, 230, 231, 166, -1, 166, 231, 232, 167, -1, 167, 232, 233, 168, -1, 168, 233, 234, 169, -1, 169, 234, 235, 170, -1, 170, 235, 236, 171, -1, 171, 236, 237, 172, -1, 172, 237, 238, 173, -1, 173, 238, 239, 174, -1, 174, 239, 240, 175, -1, 175, 240, 241, 176, -1, 176, 241, 242, 177, -1, 177, 242, 243, 178, -1, 178, 243, 244, 179, -1, 179, 244, 245, 180, -1, 180, 245, 246, 181, -1, 181, 246, 247, 182, -1, 182, 247, 248, 183, -1, 183, 248, 249, 184, -1, 184, 249, 250, 185, -1, 185, 250, 251, 186, -1, 186, 251, 252, 187, -1, 187, 252, 253, 188, -1, 188, 253, 254, 189, -1, 189, 254, 255, 190, -1, 190, 255, 256, 191, -1, 191, 256, 257, 192, -1, 192, 257, 258, 193, -1, 193, 258, 259, 194, -1, 0, 1, 66, 65, -1, 1, 2, 67, 66, -1, 2, 3, 68, 67, -1, 3, 4, 69, 68, -1, 4, 5, 70, 69, -1, 5, 6, 71, 70, -1, 6, 7, 72, 71, -1, 7, 8, 73, 72, -1, 8, 9, 74, 73, -1, 9, 10, 75, 74, -1, 10, 11, 76, 75, -1, 11, 12, 77, 76, -1, 12, 13, 78, 77, -1, 13, 14, 79, 78, -1, 14, 15, 80, 79, -1, 15, 16, 81, 80, -1, 16, 17, 82, 81, -1, 17, 18, 83, 82, -1, 18, 19, 84, 83, -1, 19, 20, 85, 84, -1, 20, 21, 86, 85, -1, 21, 22, 87, 86, -1, 22, 23, 88, 87, -1, 23, 24, 89, 88, -1, 24, 25, 90, 89, -1, 25, 26, 91, 90, -1, 26, 27, 92, 91, -1, 27, 28, 93, 92, -1, 28, 29, 94, 93, -1, 29, 30, 95, 94, -1, 30, 31, 96, 95, -1, 31, 32, 97, 96, -1, 32, 33, 98, 97, -1, 33, 34, 99, 98, -1, 34, 35, 100, 99, -1, 35, 36, 101, 100, -1, 36, 37, 102, 101, -1, 37, 38, 103, 102, -1, 38, 39, 104, 103, -1, 39, 40, 105, 104, -1, 40, 41, 106, 105, -1, 41, 42, 107, 106, -1, 42, 43, 108, 107, -1, 43, 44, 109, 108, -1, 44, 45, 110, 109, -1, 45, 46, 111, 110, -1, 46, 47, 112, 111, -1, 47, 48, 113, 112, -1, 48, 49, 114, 113, -1, 49, 50, 115, 114, -1, 50, 51, 116, 115, -1, 51, 52, 117, 116, -1, 52, 53, 118, 117, -1, 53, 54, 119, 118, -1, 54, 55, 120, 119, -1, 55, 56, 121, 120, -1, 56, 57, 122, 121, -1, 57, 58, 123, 122, -1, 58, 59, 124, 123, -1, 59, 60, 125, 124, -1, 60, 61, 126, 125, -1, 61, 62, 127, 126, -1, 62, 63, 128, 127, -1, 63, 64, 129, 128, -1, 260, 325, 326, 261, -1, 261, 326, 327, 262, -1, 262, 327, 328, 263, -1, 263, 328, 329, 264, -1, 264, 329, 330, 265, -1, 265, 330, 331, 266, -1, 266, 331, 332, 267, -1, 267, 332, 333, 268, -1, 268, 333, 334, 269, -1, 269, 334, 335, 270, -1, 270, 335, 336, 271, -1, 271, 336, 337, 272, -1, 272, 337, 338, 273, -1, 273, 338, 339, 274, -1, 274, 339, 340, 275, -1, 275, 340, 341, 276, -1, 276, 341, 342, 277, -1, 277, 342, 343, 278, -1, 278, 343, 344, 279, -1, 279, 344, 345, 280, -1, 280, 345, 346, 281, -1, 281, 346, 347, 282, -1, 282, 347, 348, 283, -1, 283, 348, 349, 284, -1, 284, 349, 350, 285, -1, 285, 350, 351, 286, -1, 286, 351, 352, 287, -1, 287, 352, 353, 288, -1, 288, 353, 354, 289, -1, 289, 354, 355, 290, -1, 290, 355, 356, 291, -1, 291, 356, 357, 292, -1, 292, 357, 358, 293, -1, 293, 358, 359, 294, -1, 294, 359, 360, 295, -1, 295, 360, 361, 296, -1, 296, 361, 362, 297, -1, 297, 362, 363, 298, -1, 298, 363, 364, 299, -1, 299, 364, 365, 300, -1, 300, 365, 366, 301, -1, 301, 366, 367, 302, -1, 302, 367, 368, 303, -1, 303, 368, 369, 304, -1, 304, 369, 370, 305, -1, 305, 370, 371, 306, -1, 306, 371, 372, 307, -1, 307, 372, 373, 308, -1, 308, 373, 374, 309, -1, 309, 374, 375, 310, -1, 310, 375, 376, 311, -1, 311, 376, 377, 312, -1, 312, 377, 378, 313, -1, 313, 378, 379, 314, -1, 314, 379, 380, 315, -1, 315, 380, 381, 316, -1, 316, 381, 382, 317, -1, 317, 382, 383, 318, -1, 318, 383, 384, 319, -1, 319, 384, 385, 320, -1, 320, 385, 386, 321, -1, 321, 386, 387, 322, -1, 322, 387, 388, 323, -1, 323, 388, 389, 324, -1, 260, 261, 326, 325, -1, 261, 262, 327, 326, -1, 262, 263, 328, 327, -1, 263, 264, 329, 328, -1, 264, 265, 330, 329, -1, 265, 266, 331, 330, -1, 266, 267, 332, 331, -1, 267, 268, 333, 332, -1, 268, 269, 334, 333, -1, 269, 270, 335, 334, -1, 270, 271, 336, 335, -1, 271, 272, 337, 336, -1, 272, 273, 338, 337, -1, 273, 274, 339, 338, -1, 274, 275, 340, 339, -1, 275, 276, 341, 340, -1, 276, 277, 342, 341, -1, 277, 278, 343, 342, -1, 278, 279, 344, 343, -1, 279, 280, 345, 344, -1, 280, 281, 346, 345, -1, 281, 282, 347, 346, -1, 282, 283, 348, 347, -1, 283, 284, 349, 348, -1, 284, 285, 350, 349, -1, 285, 286, 351, 350, -1, 286, 287, 352, 351, -1, 287, 288, 353, 352, -1, 288, 289, 354, 353, -1, 289, 290, 355, 354, -1, 290, 291, 356, 355, -1, 291, 292, 357, 356, -1, 292, 293, 358, 357, -1, 293, 294, 359, 358, -1, 294, 295, 360, 359, -1, 295, 296, 361, 360, -1, 296, 297, 362, 361, -1, 297, 298, 363, 362, -1, 298, 299, 364, 363, -1, 299, 300, 365, 364, -1, 300, 301, 366, 365, -1, 301, 302, 367, 366, -1, 302, 303, 368, 367, -1, 303, 304, 369, 368, -1, 304, 305, 370, 369, -1, 305, 306, 371, 370, -1, 306, 307, 372, 371, -1, 307, 308, 373, 372, -1, 308, 309, 374, 373, -1, 309, 310, 375, 374, -1, 310, 311, 376, 375, -1, 311, 312, 377, 376, -1, 312, 313, 378, 377, -1, 313, 314, 379, 378, -1, 314, 315, 380, 379, -1, 315, 316, 381, 380, -1, 316, 317, 382, 381, -1, 317, 318, 383, 382, -1, 318, 319, 384, 383, -1, 319, 320, 385, 384, -1, 320, 321, 386, 385, -1, 321, 322, 387, 386, -1, 322, 323, 388, 387, -1, 323, 324, 389, 388, -1
+              130, 131, 196, 195, -1, 131, 132, 197, 196, -1, 132, 133, 198, 197, -1, 133, 134, 199, 198, -1, 134, 135, 200, 199, -1, 135, 136, 201, 200, -1, 136, 137, 202, 201, -1, 137, 138, 203, 202, -1, 138, 139, 204, 203, -1, 139, 140, 205, 204, -1, 140, 141, 206, 205, -1, 141, 142, 207, 206, -1, 142, 143, 208, 207, -1, 143, 144, 209, 208, -1, 144, 145, 210, 209, -1, 145, 146, 211, 210, -1, 146, 147, 212, 211, -1, 147, 148, 213, 212, -1, 148, 149, 214, 213, -1, 149, 150, 215, 214, -1, 150, 151, 216, 215, -1, 151, 152, 217, 216, -1, 152, 153, 218, 217, -1, 153, 154, 219, 218, -1, 154, 155, 220, 219, -1, 155, 156, 221, 220, -1, 156, 157, 222, 221, -1, 157, 158, 223, 222, -1, 158, 159, 224, 223, -1, 159, 160, 225, 224, -1, 160, 161, 226, 225, -1, 161, 162, 227, 226, -1, 162, 163, 228, 227, -1, 163, 164, 229, 228, -1, 164, 165, 230, 229, -1, 165, 166, 231, 230, -1, 166, 167, 232, 231, -1, 167, 168, 233, 232, -1, 168, 169, 234, 233, -1, 169, 170, 235, 234, -1, 170, 171, 236, 235, -1, 171, 172, 237, 236, -1, 172, 173, 238, 237, -1, 173, 174, 239, 238, -1, 174, 175, 240, 239, -1, 175, 176, 241, 240, -1, 176, 177, 242, 241, -1, 177, 178, 243, 242, -1, 178, 179, 244, 243, -1, 179, 180, 245, 244, -1, 180, 181, 246, 245, -1, 181, 182, 247, 246, -1, 182, 183, 248, 247, -1, 183, 184, 249, 248, -1, 184, 185, 250, 249, -1, 185, 186, 251, 250, -1, 186, 187, 252, 251, -1, 187, 188, 253, 252, -1, 188, 189, 254, 253, -1, 189, 190, 255, 254, -1, 190, 191, 256, 255, -1, 191, 192, 257, 256, -1, 192, 193, 258, 257, -1, 193, 194, 259, 258, -1, 0, 65, 66, 1, -1, 1, 66, 67, 2, -1, 2, 67, 68, 3, -1, 3, 68, 69, 4, -1, 4, 69, 70, 5, -1, 5, 70, 71, 6, -1, 6, 71, 72, 7, -1, 7, 72, 73, 8, -1, 8, 73, 74, 9, -1, 9, 74, 75, 10, -1, 10, 75, 76, 11, -1, 11, 76, 77, 12, -1, 12, 77, 78, 13, -1, 13, 78, 79, 14, -1, 14, 79, 80, 15, -1, 15, 80, 81, 16, -1, 16, 81, 82, 17, -1, 17, 82, 83, 18, -1, 18, 83, 84, 19, -1, 19, 84, 85, 20, -1, 20, 85, 86, 21, -1, 21, 86, 87, 22, -1, 22, 87, 88, 23, -1, 23, 88, 89, 24, -1, 24, 89, 90, 25, -1, 25, 90, 91, 26, -1, 26, 91, 92, 27, -1, 27, 92, 93, 28, -1, 28, 93, 94, 29, -1, 29, 94, 95, 30, -1, 30, 95, 96, 31, -1, 31, 96, 97, 32, -1, 32, 97, 98, 33, -1, 33, 98, 99, 34, -1, 34, 99, 100, 35, -1, 35, 100, 101, 36, -1, 36, 101, 102, 37, -1, 37, 102, 103, 38, -1, 38, 103, 104, 39, -1, 39, 104, 105, 40, -1, 40, 105, 106, 41, -1, 41, 106, 107, 42, -1, 42, 107, 108, 43, -1, 43, 108, 109, 44, -1, 44, 109, 110, 45, -1, 45, 110, 111, 46, -1, 46, 111, 112, 47, -1, 47, 112, 113, 48, -1, 48, 113, 114, 49, -1, 49, 114, 115, 50, -1, 50, 115, 116, 51, -1, 51, 116, 117, 52, -1, 52, 117, 118, 53, -1, 53, 118, 119, 54, -1, 54, 119, 120, 55, -1, 55, 120, 121, 56, -1, 56, 121, 122, 57, -1, 57, 122, 123, 58, -1, 58, 123, 124, 59, -1, 59, 124, 125, 60, -1, 60, 125, 126, 61, -1, 61, 126, 127, 62, -1, 62, 127, 128, 63, -1, 63, 128, 129, 64, -1, 260, 261, 326, 325, -1, 261, 262, 327, 326, -1, 262, 263, 328, 327, -1, 263, 264, 329, 328, -1, 264, 265, 330, 329, -1, 265, 266, 331, 330, -1, 266, 267, 332, 331, -1, 267, 268, 333, 332, -1, 268, 269, 334, 333, -1, 269, 270, 335, 334, -1, 270, 271, 336, 335, -1, 271, 272, 337, 336, -1, 272, 273, 338, 337, -1, 273, 274, 339, 338, -1, 274, 275, 340, 339, -1, 275, 276, 341, 340, -1, 276, 277, 342, 341, -1, 277, 278, 343, 342, -1, 278, 279, 344, 343, -1, 279, 280, 345, 344, -1, 280, 281, 346, 345, -1, 281, 282, 347, 346, -1, 282, 283, 348, 347, -1, 283, 284, 349, 348, -1, 284, 285, 350, 349, -1, 285, 286, 351, 350, -1, 286, 287, 352, 351, -1, 287, 288, 353, 352, -1, 288, 289, 354, 353, -1, 289, 290, 355, 354, -1, 290, 291, 356, 355, -1, 291, 292, 357, 356, -1, 292, 293, 358, 357, -1, 293, 294, 359, 358, -1, 294, 295, 360, 359, -1, 295, 296, 361, 360, -1, 296, 297, 362, 361, -1, 297, 298, 363, 362, -1, 298, 299, 364, 363, -1, 299, 300, 365, 364, -1, 300, 301, 366, 365, -1, 301, 302, 367, 366, -1, 302, 303, 368, 367, -1, 303, 304, 369, 368, -1, 304, 305, 370, 369, -1, 305, 306, 371, 370, -1, 306, 307, 372, 371, -1, 307, 308, 373, 372, -1, 308, 309, 374, 373, -1, 309, 310, 375, 374, -1, 310, 311, 376, 375, -1, 311, 312, 377, 376, -1, 312, 313, 378, 377, -1, 313, 314, 379, 378, -1, 314, 315, 380, 379, -1, 315, 316, 381, 380, -1, 316, 317, 382, 381, -1, 317, 318, 383, 382, -1, 318, 319, 384, 383, -1, 319, 320, 385, 384, -1, 320, 321, 386, 385, -1, 321, 322, 387, 386, -1, 322, 323, 388, 387, -1, 323, 324, 389, 388, -1, 260, 325, 326, 261, -1, 261, 326, 327, 262, -1, 262, 327, 328, 263, -1, 263, 328, 329, 264, -1, 264, 329, 330, 265, -1, 265, 330, 331, 266, -1, 266, 331, 332, 267, -1, 267, 332, 333, 268, -1, 268, 333, 334, 269, -1, 269, 334, 335, 270, -1, 270, 335, 336, 271, -1, 271, 336, 337, 272, -1, 272, 337, 338, 273, -1, 273, 338, 339, 274, -1, 274, 339, 340, 275, -1, 275, 340, 341, 276, -1, 276, 341, 342, 277, -1, 277, 342, 343, 278, -1, 278, 343, 344, 279, -1, 279, 344, 345, 280, -1, 280, 345, 346, 281, -1, 281, 346, 347, 282, -1, 282, 347, 348, 283, -1, 283, 348, 349, 284, -1, 284, 349, 350, 285, -1, 285, 350, 351, 286, -1, 286, 351, 352, 287, -1, 287, 352, 353, 288, -1, 288, 353, 354, 289, -1, 289, 354, 355, 290, -1, 290, 355, 356, 291, -1, 291, 356, 357, 292, -1, 292, 357, 358, 293, -1, 293, 358, 359, 294, -1, 294, 359, 360, 295, -1, 295, 360, 361, 296, -1, 296, 361, 362, 297, -1, 297, 362, 363, 298, -1, 298, 363, 364, 299, -1, 299, 364, 365, 300, -1, 300, 365, 366, 301, -1, 301, 366, 367, 302, -1, 302, 367, 368, 303, -1, 303, 368, 369, 304, -1, 304, 369, 370, 305, -1, 305, 370, 371, 306, -1, 306, 371, 372, 307, -1, 307, 372, 373, 308, -1, 308, 373, 374, 309, -1, 309, 374, 375, 310, -1, 310, 375, 376, 311, -1, 311, 376, 377, 312, -1, 312, 377, 378, 313, -1, 313, 378, 379, 314, -1, 314, 379, 380, 315, -1, 315, 380, 381, 316, -1, 316, 381, 382, 317, -1, 317, 382, 383, 318, -1, 318, 383, 384, 319, -1, 319, 384, 385, 320, -1, 320, 385, 386, 321, -1, 321, 386, 387, 322, -1, 322, 387, 388, 323, -1, 323, 388, 389, 324, -1
             ]
             creaseAngle 1.5
           }
@@ -1548,12 +1683,10 @@ Robot {
     DEF EPUCK_SPEAKER Speaker {
     }
     DEF TURRET_SLOT Transform {
-      translation 0 0.0486 0.0095
-      rotation 0 0 1 0
+      translation -0.0095 0 0.0486
     }
     DEF GROUND_SENSOR_SLOT Transform {
-      translation 0 0.0003 -0.03
-      rotation 0 0 1 -1.57
+      translation 0.03 0 0.0003
     }
   ]
   name "e-puck"
@@ -1562,7 +1695,8 @@ Robot {
   boundingObject Group {
     children [
       Transform {
-        translation 0 0.025 0
+        translation 0 0 0.025
+        rotation 1 0 0 3.141589
         children [
           Cylinder {
             height 0.045
@@ -1572,10 +1706,10 @@ Robot {
         ]
       }
       Transform {
-        translation 0 0.0051 0
+        translation 0 0 0.0051
         children [
           Box {
-            size 0.04 0.01 0.05
+            size 0.05 0.04 0.01
           }
         ]
       }
@@ -1585,158 +1719,18 @@ Robot {
     density -1
     mass 0.15
     centerOfMass [
-      0 0.015 0
+      0 0 0.015
     ]
     inertiaMatrix [
-      8.74869e-05 9.78585e-05 8.64333e-05
+      9.78585e-05 8.64333e-05 8.74869e-05
       0 0 0
     ]
   }
   controller "bee_navigation"
+  controllerArgs [
+    ""
+  ]
   cpuConsumption 1.11
   window "e-puck"
   remoteControl "e-puck_bluetooth"
-}
-DEF WALL_1 Solid {
-  translation 0.116851 0.02 1.2338
-  scale 0.5 0.5 0.5
-  children [
-    DEF WALL_SHAPE Shape {
-      appearance PBRAppearance {
-        baseColor 0.000106813 0.00175479 0.998215
-        roughness 0.5
-        metalness 0
-      }
-      geometry Box {
-        size 0.02 0.1 0.98
-      }
-    }
-  ]
-  name "solid(1)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_2 Solid {
-  translation -0.225855 0.02 1.24642
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(2)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_3 Solid {
-  translation -0.0232998 0.05 -1.38614
-  rotation 0 1 0 1.5708
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(3)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_4 Solid {
-  translation 0.00611747 0.02 1.48433
-  rotation 0 1 0 1.5708
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(4)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_5 Solid {
-  translation -0.194337 0.02 0.774687
-  rotation 0 1 0 -0.132741
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(5)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_6 Solid {
-  translation 0.138105 0.02 0.275607
-  rotation 0 1 0 -0.33
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(6)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_7 Solid {
-  translation 0.0864879 0.02 0.751986
-  rotation 0 1 0 0.13274122871834493
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(7)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_8 Solid {
-  translation -0.0836238 0.02 0.301085
-  rotation 0 1 0 -0.33
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(8)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_9 Solid {
-  translation -0.0849134 0.02 -0.150725
-  rotation 0 1 0 0.33
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(9)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_10 Solid {
-  translation 0.134287 0.02 -0.184429
-  rotation 0 1 0 0.33
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(10)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_11 Solid {
-  translation 0.108145 0.02 -0.653765
-  rotation 0 1 0 -0.2
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(11)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_12 Solid {
-  translation -0.154199 0.02 -0.629633
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(12)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_13 Solid {
-  translation -0.155795 0.02 -1.12618
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(13)"
-  boundingObject USE WALL_SHAPE
-}
-DEF WALL_14 Solid {
-  translation 0.156242 0.02 -1.15931
-  scale 0.5 0.5 0.5
-  children [
-    USE WALL_SHAPE
-  ]
-  name "solid(14)"
-  boundingObject USE WALL_SHAPE
 }

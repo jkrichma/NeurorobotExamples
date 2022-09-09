@@ -1,5 +1,6 @@
 # Morris Water Maze
 # Jeff Krichmar, March 22 2021
+#    September 9 2022: Updated for Webots R2022a. Compass is not working correctly.  Replaced compass with robot rotation from Supervisor.
 
 Demonstration of Morris Water Maze (MWM). Builds on the demo code for obstacle avoidance on Firebird 6 robot by Anant Malewar; Nex Robotics.
  

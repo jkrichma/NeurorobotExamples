@@ -1,4 +1,4 @@
-#VRML_SIM R2021a utf8
+#VRML_SIM R2022a utf8
 WorldInfo {
   info [
     "A Khepera robot equipped with a gripper"
@@ -7,7 +7,6 @@ WorldInfo {
   CFM 0.001
   ERP 0.4
   basicTimeStep 10
-  coordinateSystem "NUE"
   contactProperties [
     ContactProperties {
       material1 "gripper"
@@ -25,21 +24,19 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.6009186276324004 0.7305690126943049 0.32429264662532975 4.953385053082951
-  position -0.8776727185555345 1.0578412093110345 0.5085249273150663
-  followType "None"
+  orientation -0.32726201812136524 0.19786846939568525 0.9239846537222032 2.1226695961120576
+  position 0.8464936002221275 -1.5060118810174323 1.416718585316196
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
-  castShadows FALSE
 }
 RectangleArena {
   wallHeight 0.02
 }
 DEF RED_STICK Solid {
-  translation 0.00613218 0.03 0.120228
-  rotation 0 -1 0 3.53867
+  translation 0.08 0 0.03
+  scale 2 2 2
   children [
     DEF STICK_SHAPE Shape {
       appearance PBRAppearance {
@@ -48,26 +45,22 @@ DEF RED_STICK Solid {
         metalness 0
       }
       geometry Cylinder {
-        height 0.06
-        radius 0.015
+        height 0.08
+        radius 0.008
       }
     }
   ]
   name "red stick"
   contactMaterial "stick"
   boundingObject Box {
-    size 0.013 0.06 0.013
+    size 0.013 0.013 0.06
   }
   physics Physics {
     density 100
   }
-  recognitionColors [
-    0 0 0
-  ]
 }
 DEF Khepera Khepera1 {
-  translation 0.186313 0 -0.124988
-  rotation 0 1 0 -28.6581
+  translation -0.261523 -0.278144 0.0045528
   name "khepera camera"
   controller "action_selection"
   supervisor TRUE
@@ -75,8 +68,8 @@ DEF Khepera Khepera1 {
     DEF LIFT_HINGE_JOINT HingeJoint {
       jointParameters HingeJointParameters {
         position -1.4
-        axis -1 0 0
-        anchor 0 0.022 0.01
+        axis 0 1 0
+        anchor -0.01 0 0.022
       }
       device [
         RotationalMotor {
@@ -84,8 +77,8 @@ DEF Khepera Khepera1 {
         }
       ]
       endPoint Solid {
-        translation 0 0.022 0.01
-        rotation 1 0 0 1.3999999999999997
+        translation -0.01 0 0.022
+        rotation 0.7058148424148545 -0.7058148424148558 -0.06042198650976571 3.0208949999999963
         children [
           DEF RIGHT_GRIP SliderJoint {
             jointParameters JointParameters {
@@ -275,7 +268,8 @@ DEF Khepera Khepera1 {
       }
     }
     DEF GRIPPER_BASE Transform {
-      translation 0 0.023 0.01
+      translation -0.01 0 0.023
+      rotation 0.5773502691896258 -0.5773502691896258 -0.5773502691896258 2.094395
       children [
         Shape {
           appearance PBRAppearance {
@@ -290,8 +284,8 @@ DEF Khepera Khepera1 {
       ]
     }
     Camera {
-      translation 0 0.035 0.01
-      rotation 1 0 0 0
+      translation -0.01 0 0.035
+      rotation -0.999759341318827 -0.016153505514822745 -0.014843305067519018 -5.307179586466759e-06
       children [
         Shape {
           appearance PBRAppearance {
@@ -300,12 +294,12 @@ DEF Khepera Khepera1 {
             metalness 0
           }
           geometry DEF CAMERA Box {
-            size 0.03 0.02 0.03
+            size 0.03 0.03 0.02
           }
         }
       ]
       boundingObject DEF CAMERA Box {
-        size 0.03 0.02 0.03
+        size 0.03 0.03 0.02
       }
       physics Physics {
         density -1

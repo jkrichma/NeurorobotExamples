@@ -1,10 +1,9 @@
-#VRML_SIM R2020b utf8
+#VRML_SIM R2022a utf8
 WorldInfo {
-  coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.8851926905151974 0.34848383222272855 0.3082092135836097 1.5499731537896217
-  position 0.33249249615321763 6.216085746453826 0.6734592799711505
+  orientation -0.30820921358360964 0.8851926905151976 0.3484838322227284 1.5499731537896217
+  position -0.6734592799711505 -0.33249249615321763 6.216085746453826
 }
 TexturedBackground {
 }
@@ -18,7 +17,7 @@ CircleArena {
   wallHeight 0.2
 }
 CircleArena {
-  translation 0.33 0 0.67
+  translation -0.67 -0.33 0
   name "platform"
   radius 0.33
   floorAppearance Appearance {
@@ -29,7 +28,6 @@ CircleArena {
   wallHeight 0.005
 }
 DEF FireBird FireBird6 {
-  translation -1.2 0.13 -1.2
   controller "morris_water_maze"
   supervisor TRUE
 }

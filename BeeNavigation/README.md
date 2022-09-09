@@ -1,5 +1,7 @@
 # Bee Navigation
 # Jeff Krichmar, March 21 2021
+#    September 9 2022: Updated for Webots R2022a.  There may be a warning on startup.  But should still work fine.
+
 
 This directory contains a Webots project to simulate how a honeybee navigates a narrow corridor. 
 It is based on the balanced optic flow idea to stay in the middle of a corridor, which was proposed as a visual navigation strategy used by bees.  And maybe humans too.  

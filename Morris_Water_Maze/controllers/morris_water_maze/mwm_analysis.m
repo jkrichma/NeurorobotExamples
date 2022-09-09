@@ -1,9 +1,12 @@
 % Jeff Krichmar 
 % Description: Plots results from webots morris water maze simulation.
-% Inputs
-%    t - the latencies from the 32 trials. 'load('mwm_latency.txt)'
-%    pc - the locations of the place cells. 'load('mwm_place.txt')'
-%    z - the weights of the actor. 'load('mwm_z.txt')
+% Inputs (need to be loaded from the Webots trial)
+%    t - the latencies from the 32 trials.
+%    >> t = load('mwm_latency.txt');
+%    pc - the locations of the place cells. 
+%    >> pc = load('mwm_place.txt');
+%    z - the weights of the actor.
+%    >> z = load('mwm_z.txt');
 % Output
 %    time2platform - summation of 4 runs from each starting point
 %

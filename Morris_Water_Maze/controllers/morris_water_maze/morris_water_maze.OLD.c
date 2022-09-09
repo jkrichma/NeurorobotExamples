@@ -14,9 +14,6 @@
  * robot's compass to calculate its heading.  Proximity sensors are used to avoid the walls of the arena.
  * The actor-critic model learns a mapping between a place cell and a heading pointing towards the platform.
  * 
- * Update 9/9/2022: Updated to work with Webots r2022a. Compass is not working properly. Using robot rotation
- *                  obtained via Supervisor instead.
- * 
  */
 
 #include <webots/distance_sensor.h>
@@ -48,7 +45,7 @@
 #define BETA 2.0              // For the Softmax function
 #define PI 3.141592653589793238
 #define TRIALS 32
-#define TIMEOUT 5000
+#define TIMEOUT 1000000
 #define SEED 1
 
 // The MWM model evenly distributes 2D Gaussian place cells (PC). 
@@ -287,8 +284,18 @@ int main(int argc, char **argv) {
         double ps_values[8];
         for (i = 0; i < 8; ++i) {
             ps_values[i] = wb_distance_sensor_get_value(ps[i]);
+            // printf("%f ", ps_values[i]);
         }
+        // printf("\n");
         
+
+        // printf("MX %f ", cmpXY[0]);
+        // printf("MY %f ", cmpXY[1]);
+        // printf("MZ %f ", cmpZ[2]);
+        // printf("rad = %f bearing = %f", rad, bearing);
+        // printf("\n");
+
+ 
         // check if the robot hit the arena wall.       
         double threshold = 0.25;       
         bool left_obstacle = ps_values[1] < threshold || ps_values[0] < threshold;
@@ -333,24 +340,21 @@ int main(int argc, char **argv) {
         // check if the robot is in the middle of a turn. Use the compass to rotate to the 
         // desired heading. rotate in the direction that is shortest to the desired heading
         else if (turning) {
-            // COMPASS NOT WORKING IN R2022A
-            // Read compass
-            // const double *cmpXY, *cmpZ;
-            // cmpXY = wb_compass_get_values(cmpXY1);
-            // cmpZ = wb_compass_get_values(cmpZ1);
+                // Read compass
+            const double *cmpXY, *cmpZ;
+            cmpXY = wb_compass_get_values(cmpXY1);
+            cmpZ = wb_compass_get_values(cmpZ1);
         
             // calculate bearing
             // rad = atan2(cmpXY[0], cmpZ[2]);
             // bearing = (rad) / 3.1428 * 180.0;
-            // USE ROTATION INSTEAD OF COMPASS
-            bearing = rot_value[3] * (180.0/PI);
+            bearing = rot_value[3] / 3.1428 * 180.0;
             if (bearing < 0.0) {
                 bearing = bearing + 360.0;
             }
             // pointing close to the desired heading
-            heading_error = bearing - head_direction[dir];
-            
-            // cleaned up turning logic.  may not be most efficient. but more reliable.
+            heading_error = head_direction[dir] - bearing;
+            // fprintf(stdout, "%f %f %f\n", bearing, head_direction[dir], heading_error);
             if (fabs(heading_error) < HD_RES) {
                 turning = false;
                 t = 1;
@@ -359,16 +363,35 @@ int main(int argc, char **argv) {
                 turning = false;
                 t = 1;
             }
-            else if (bearing < head_direction[dir]) {
-                // turn left
+            else {
                 left_speed = -1.0;
-                right_speed = 3.0;            
+                right_speed = 3.0;
+            }             /*
+            else if (heading_error > 0) {
+                if (fabs(heading_error) < 180.0) {
+                    // turn right
+                    left_speed = 3.0;
+                    right_speed = -1.0;
+                }
+                else {
+                    // turn left
+                    left_speed = -1.0;
+                    right_speed = 3.0;
+                } 
             }
             else {
-                // turn right
-                left_speed = 3.0;
-                right_speed = -1.0;
+                if (fabs(heading_error) < 180.0) {
+                    // turn left
+                    left_speed = -1.0;
+                    right_speed = 3.0;
+                }
+                else {
+                    // turn right
+                    left_speed = 3.0;
+                    right_speed = -1.0;
+                }
             }
+            */
         }
         // move in the desired heading. update counter for forward movement
         else {
@@ -382,18 +405,21 @@ int main(int argc, char **argv) {
         wb_motor_set_velocity(left_motor, left_speed);
         wb_motor_set_velocity(right_motor, right_speed);
         
+        // fprintf(stdout, "%i %i\n", turning, t);
+        
         // if the platform was found or it is time to select a new heading
         // update the actor and critic, choose a new heading
         if (found || (!turning && ((t % TURN_RATE) == 0))) {
             turning = true;
             t = 1;
+            // fprintf(stdout,"%i turn dammit!\n", tLatency);
             for (int i = 0; i < 3; i++) {
                 rat[i] = trans_value[i];
             }
             update_place_cells (rat);                    
             vpre = update_weights (dir, vpre, found); 
             
-            if ((found) || (tLatency > TIMEOUT)){
+            if ((found) || (tLatency > 1000)){
                 if (found) {
                    fprintf(stdout, "\nFound platform on trial %i at time %i, ", trial, tLatency);
                    fprintf(stdout, "rat (%f, %f)\n", rat[0], rat[2]);
@@ -416,7 +442,9 @@ int main(int argc, char **argv) {
                 dir = action_select(false);
             }          
         }
-        tLatency++;
+        if (!turning) {
+           tLatency++;
+        }
     };
     fclose(fpLatency);
         

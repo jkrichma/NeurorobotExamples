@@ -1,5 +1,6 @@
 # Neurorobot Examples
 # Jeff Krichmar, March 19, 2021
+#    September 9 2022: Updated for Webots R2022a.  There may be warnings on startup.  But should still work fine.
 These examples illustrate concepts discussed in the book "Neurorobotics: Connecting the Brain, Body and Environment." Tiffany Hwu and Jeff Krichmar, Cambridge, MA, MIT Press. The examples use the Webots robot simulator (https://cyberbotics.com/). 
 
 1) Braitenberg vehicles 2 and 3.

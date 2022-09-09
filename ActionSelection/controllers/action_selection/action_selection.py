@@ -40,10 +40,10 @@ NUM_SENSORS = 8
 FRONT_LEFT = 2
 FRONT_RIGHT = 3
 BASE_SPEED = 5.0
-TURN_RATE = 2.0
+TURN_RATE = 2.5
 SEE_OBJECT = 20
 BETA = 0.10
-TRIAL_LENGTH = 20
+TRIAL_LENGTH = 10
 fear_level = TRIAL_LENGTH
 hunger_level = 0
 
@@ -55,7 +55,9 @@ STICK_HEIGHT = 0.03
 hide_timer = 0
 
 FORWARD_MAX = 50
+forward_timer = 10+int(random()*FORWARD_MAX)
 TUMBLE_MAX = 20
+tumble_timer = 0
 
 # States
 STATE_EXPLORE = 0
@@ -226,7 +228,8 @@ def eat(ds, food):
             while get_distance(robot_position[0],robot_position[2],x,z) < 0.25:
                 x = 0.5*random()-0.25
                 z = 0.5*random()-0.25
-            translation_stick_field.setSFVec3f([x, STICK_HEIGHT, z])
+#            translation_stick_field.setSFVec3f([x, STICK_HEIGHT, z])
+            translation_stick_field.setSFVec3f([x, z, STICK_HEIGHT])
             rotation_stick_field.setSFRotation(stick_rotation)
             
             # robot ate red stick. now full

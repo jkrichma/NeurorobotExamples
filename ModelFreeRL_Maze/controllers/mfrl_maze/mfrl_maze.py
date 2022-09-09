@@ -7,6 +7,8 @@ mfrl_maze.py
     Description :
     * Simulation of Q learning in a maze.
     * Webot description:  Uses the e-Puck robot and its proximity sensors to detect maze walls.
+    * Changes
+    *** September 7, 2022. Changed the rotation values due to new coordinate system in Webots R2022a
 
 """
 
@@ -144,7 +146,7 @@ robot_node = supervisor.getFromDef("epuck")
 translation_field = robot_node.getField("translation")
 rotation_field = robot_node.getField("rotation")
 initial_translation = translation_field.getSFVec3f()
-initial_rotation = [0.0, 1.0, 0.0, 0.0]
+initial_rotation = [-0.577, 0.577, 0.577, 2.09]
 
 
 # initialize proximity sensors
