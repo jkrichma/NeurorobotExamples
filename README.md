@@ -1,6 +1,7 @@
 # Neurorobot Examples
 # Jeff Krichmar, March 19, 2021
 #    September 9 2022: Updated for Webots R2022a.  There may be warnings on startup.  But should still work fine.
+#    December 23, 2022: Updated for Webots R2023a.  Got rid of most warnings.  Note that with Morris Water Maze you may need to re-select the C controller and change the seed. 
 These examples illustrate concepts discussed in the book "Neurorobotics: Connecting the Brain, Body and Environment." Tiffany Hwu and Jeff Krichmar, Cambridge, MA, MIT Press. The examples use the Webots robot simulator (https://cyberbotics.com/). 
 
 1) Braitenberg vehicles 2 and 3.

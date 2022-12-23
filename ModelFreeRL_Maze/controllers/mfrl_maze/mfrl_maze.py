@@ -90,10 +90,14 @@ def print_table (a, b, s, q_tbl, probability):
 #####################################################################
 TIME_STEP = 64
 MAX_SPEED = 6.28
-Reward3 = [-0.338, 0, 0.417]
-Reward4 = [-0.338, 0, 0.008]
-Reward5 = [0.265, 0, 0.008]
-Reward6 = [0.265, 0, 0.417]
+# Reward3 = [-0.338, 0, 0.417]
+# Reward4 = [-0.338, 0, 0.008]
+# Reward5 = [0.265, 0, 0.008]
+# Reward6 = [0.265, 0, 0.417]
+Reward3 = [-0.395, 0.342, 0]
+Reward4 = [0.023, 0.344, 0]
+Reward5 = [0.0, -0.274, 0]
+Reward6 = [-0.389, -0.26, 0]
 REWARD_DIST_THR = 0.05
 STATES = 7
 ACTIONS = 2
@@ -146,7 +150,8 @@ robot_node = supervisor.getFromDef("epuck")
 translation_field = robot_node.getField("translation")
 rotation_field = robot_node.getField("rotation")
 initial_translation = translation_field.getSFVec3f()
-initial_rotation = [-0.577, 0.577, 0.577, 2.09]
+# initial_rotation = [-0.577, 0.577, 0.577, 2.09]
+initial_rotation = rotation_field.getSFRotation()
 
 
 # initialize proximity sensors
@@ -238,10 +243,10 @@ while trial < TRIALS:
     # Get the current position of the robot. Check if the robot is near one of the end arms.
     # If the robot is near an end arm, this trial is complete
     current_translation = translation_field.getSFVec3f()
-    distToR3 = getDistance(current_translation[0],current_translation[2],Reward3[0],Reward3[2])
-    distToR4 = getDistance(current_translation[0],current_translation[2],Reward4[0],Reward4[2])
-    distToR5 = getDistance(current_translation[0],current_translation[2],Reward5[0],Reward5[2])
-    distToR6 = getDistance(current_translation[0],current_translation[2],Reward6[0],Reward6[2])
+    distToR3 = getDistance(current_translation[0],current_translation[1],Reward3[0],Reward3[1])
+    distToR4 = getDistance(current_translation[0],current_translation[1],Reward4[0],Reward4[1])
+    distToR5 = getDistance(current_translation[0],current_translation[1],Reward5[0],Reward5[1])
+    distToR6 = getDistance(current_translation[0],current_translation[1],Reward6[0],Reward6[1])
     
     if distToR3 < REWARD_DIST_THR:
         trialComplete = True

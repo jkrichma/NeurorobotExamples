@@ -1,11 +1,16 @@
-#VRML_SIM R2021a utf8
+#VRML_SIM R2023a utf8 
+
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/Floor.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
 WorldInfo {
   basicTimeStep 16
-  coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.9927425565420513 0.11977536775628314 0.010773936569296214 5.429320719038382
-  position -0.17227068057440822 1.0259525000460932 1.1429177795165897
+  orientation -0.010773936569296073 -0.9927425565420513 0.11977536775628309 -0.8538645881412041
+  position -1.1429177795165897 0.17227068057440822 1.0259525000460932
 }
 TexturedBackground {
 }
@@ -14,14 +19,15 @@ TexturedBackgroundLight {
 }
 Floor {
   size 1 1
+rotation 0.0 0.0 1.0 1.5707963267948966
 }
 DEF epuck E-puck {
-  translation -0.040203 0 0.416042
+  translation -0.416042 0.040203 0
   controller "mfrl_maze"
   supervisor TRUE
 }
 DEF WALL_1 Solid {
-  translation 0.0274448 0.05 0.389105
+  translation -0.389105 -0.0274448 0.05
   children [
     DEF WALL_SHAPE Shape {
       appearance PBRAppearance {
@@ -30,7 +36,7 @@ DEF WALL_1 Solid {
         metalness 0
       }
       geometry Box {
-        size 0.02 0.1 0.15
+        size 0.15 0.02 0.1
       }
     }
   ]
@@ -38,7 +44,7 @@ DEF WALL_1 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_10 Solid {
-  translation 0.187469 0.05 0.374547
+  translation -0.374547 -0.187469 0.05
   children [
     DEF WALL_SHAPE Shape {
       appearance PBRAppearance {
@@ -47,7 +53,7 @@ DEF WALL_10 Solid {
         metalness 0
       }
       geometry Box {
-        size 0.02 0.1 0.15
+        size 0.15 0.02 0.1
       }
     }
   ]
@@ -55,7 +61,7 @@ DEF WALL_10 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_10 Solid {
-  translation 0.189395 0.05 0.070458
+  translation -0.070458 -0.189395 0.05
   children [
     DEF WALL_SHAPE Shape {
       appearance PBRAppearance {
@@ -64,7 +70,7 @@ DEF WALL_10 Solid {
         metalness 0
       }
       geometry Box {
-        size 0.02 0.1 0.15
+        size 0.15 0.02 0.1
       }
     }
   ]
@@ -72,7 +78,7 @@ DEF WALL_10 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_10 Solid {
-  translation -0.275018 0.05 0.394349
+  translation -0.394349 0.275018 0.05
   children [
     DEF WALL_SHAPE Shape {
       appearance PBRAppearance {
@@ -81,7 +87,7 @@ DEF WALL_10 Solid {
         metalness 0
       }
       geometry Box {
-        size 0.02 0.1 0.15
+        size 0.15 0.02 0.1
       }
     }
   ]
@@ -89,7 +95,7 @@ DEF WALL_10 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_2 Solid {
-  translation -0.107594 0.05 0.395919
+  translation -0.395919 0.107594 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -97,7 +103,7 @@ DEF WALL_2 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_8 Solid {
-  translation -0.274564 0.05 0.0685545
+  translation -0.0685545 0.274564 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -105,7 +111,7 @@ DEF WALL_8 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_11 Solid {
-  translation 0.320662 0.05 0.369008
+  translation -0.369008 -0.320662 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -113,7 +119,7 @@ DEF WALL_11 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_11 Solid {
-  translation 0.320456 0.05 0.215572
+  translation -0.215572 -0.320456 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -121,7 +127,7 @@ DEF WALL_11 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_11 Solid {
-  translation 0.320636 0.05 0.0657871
+  translation -0.0657871 -0.320636 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -129,7 +135,7 @@ DEF WALL_11 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_12 Solid {
-  translation -0.40171 0.05 0.374691
+  translation -0.374691 0.40171 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -137,7 +143,7 @@ DEF WALL_12 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_12 Solid {
-  translation -0.403226 0.05 0.22181
+  translation -0.22181 0.403226 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -145,7 +151,7 @@ DEF WALL_12 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_12 Solid {
-  translation -0.405415 0.05 0.0722522
+  translation -0.0722522 0.405415 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -153,8 +159,8 @@ DEF WALL_12 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_3 Solid {
-  translation -0.194385 0.05 0.309435
-  rotation 0 1 0 1.5707999999999998
+  translation -0.309435 0.194385 0.05
+  rotation 0 0 1 1.5707999999999998
   children [
     USE WALL_SHAPE
   ]
@@ -162,8 +168,8 @@ DEF WALL_3 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_4 Solid {
-  translation -0.19536 0.05 0.155677
-  rotation 0 1 0 1.5708
+  translation -0.155677 0.19536 0.05
+  rotation 0 0 1 1.5708
   children [
     USE WALL_SHAPE
   ]
@@ -171,8 +177,8 @@ DEF WALL_4 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_5 Solid {
-  translation 0.10091 0.05 0.301991
-  rotation 0 1 0 1.5707999999999998
+  translation -0.301991 -0.10091 0.05
+  rotation 0 0 1 1.5707999999999998
   children [
     USE WALL_SHAPE
   ]
@@ -180,8 +186,8 @@ DEF WALL_5 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_6 Solid {
-  translation 0.0987803 0.05 0.156549
-  rotation 0 1 0 1.5707999999999998
+  translation -0.156549 -0.0987803 0.05
+  rotation 0 0 1 1.5707999999999998
   children [
     USE WALL_SHAPE
   ]
@@ -189,8 +195,8 @@ DEF WALL_6 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_7 Solid {
-  translation -0.0476208 0.05 0.158908
-  rotation 0 1 0 1.5707999999999998
+  translation -0.158908 0.0476208 0.05
+  rotation 0 0 1 1.5707999999999998
   children [
     USE WALL_SHAPE
   ]
